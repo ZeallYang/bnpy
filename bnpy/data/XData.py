@@ -258,11 +258,15 @@ class XData(DataObj):
             self.name = str(name)
 
         # Add optional row names
+        # this line is added by Tingting
+        self.row_names = np.arange(0, self.nObs, 1)
+        
         if row_names is None:
-            self.row_names = map(str, range(self.nObs))
+            self.row_names = np.arange(0, self.nObs, 1)
+                ## map(str, range(self.nObs))
         else:
-            assert len(row_names) == self.nObs
-            self.row_names = map(str, row_names)
+            assert len(list(self.row_names) )== self.nObs
+            # self.row_names = map(str, row_names)
 
         # Add optional column names
         if column_names is None:
@@ -386,13 +390,16 @@ class XData(DataObj):
             nObsTotal = self.nObsTotal
         else:
             nObsTotal = None
-
+        
+        if self.row_names is None:
+            self.row_names = [str(i) for i in example_id_list]
+    
         return XData(
             X=newX,
             Xprev=newXprev,
             Y=newY,
             nObsTotal=nObsTotal,
-            row_names=[self.row_names[i] for i in example_id_list],
+            row_names=self.row_names,
             TrueZ=newTrueZ,
             )
 

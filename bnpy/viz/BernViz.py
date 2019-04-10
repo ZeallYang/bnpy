@@ -92,8 +92,8 @@ def plotCompsAsSquareImages(phi,
 
     for plotID, compID in enumerate(compListToPlot):
         if plotID >= Kmax:
-            print 'DISPLAY LIMIT EXCEEDED. Showing %d/%d components' \
-                % (plotID, len(activeCompIDs))
+            print( 'DISPLAY LIMIT EXCEEDED. Showing %d/%d components' \
+                % (plotID, len(activeCompIDs)))
             break
 
         if compID not in activeCompIDs:

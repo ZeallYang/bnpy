@@ -48,6 +48,6 @@ try:
     import viz
     __all__.append('viz')
 except ImportError:
-    print "Error importing matplotlib. Plotting disabled."
-    print "Fix by making sure this produces a figure window on your system"
-    print " >>> from matplotlib import pylab; pylab.figure(); pylab.show();"
+    print("Error importing matplotlib. Plotting disabled.")
+    print("Fix by making sure this produces a figure window on your system")
+    print(" >>> from matplotlib import pylab; pylab.figure(); pylab.show();")

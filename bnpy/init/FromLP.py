@@ -87,7 +87,7 @@ def makeLP_ContigBlocks(Data, K=0, KperSeq=None, initNumSeq=None, **kwargs):
         assert K > 0
         KperSeq = int(np.ceil(K / float(initNumSeq)))
         if KperSeq * initNumSeq > K:
-            print 'WARNING: using initial K larger than suggested.'
+            print( 'WARNING: using initial K larger than suggested.')
         K = KperSeq * initNumSeq
     assert KperSeq > 0
 

@@ -1,14 +1,14 @@
 import numpy as np
 import logging
 
-import LocalStepManyDocs
-import OptimizerRhoOmegaBetter
+import topics.LocalStepManyDocs
+from topics.OptimizerRhoOmegaBetter import *
 
-from HDPTopicUtil import calcELBO
-from HDPTopicUtil import calcELBO_LinearTerms, calcELBO_NonlinearTerms
-from HDPTopicUtil import calcHrespForMergePairs, calcHrespForSpecificMergePairs
-from HDPTopicUtil import calcMergeTermsFromSeparateLP
-from HDPTopicUtil import L_alloc
+from topics.HDPTopicUtil import calcELBO
+from topics.HDPTopicUtil import calcELBO_LinearTerms, calcELBO_NonlinearTerms
+from topics.HDPTopicUtil import calcHrespForMergePairs, calcHrespForSpecificMergePairs
+from topics.HDPTopicUtil import calcMergeTermsFromSeparateLP
+from topics.HDPTopicUtil import L_alloc
 
 from bnpy.allocmodel.AllocModel import AllocModel
 from bnpy.allocmodel.mix.DPMixtureModel import convertToN0
@@ -19,7 +19,7 @@ from bnpy.util.StickBreakUtil import rho2beta, rho2beta_active, beta2rho
 
 from bnpy.util import sharedMemToNumpyArray, numpyToSharedMemArray
 
-kvec = OptimizerRhoOmegaBetter.kvec
+# kvec = OptimizerRhoOmegaBetter.kvec
 Log = logging.getLogger('bnpy')
 
 

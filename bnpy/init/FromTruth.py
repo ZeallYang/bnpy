@@ -244,8 +244,8 @@ def dropWordsFromLP(Data, LP,
         mask = Data.word_id == v
         resp[mask, initTargetCompID] = 1e-100
 
-    print 'initDropWordIDs:',
-    print '   ', initDropWordIDs
+    print( 'initDropWordIDs:',)
+    print( '   ', initDropWordIDs)
 
     LP['resp'] = resp
     return LP

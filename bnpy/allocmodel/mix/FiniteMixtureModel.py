@@ -3,13 +3,14 @@ Bayesian parametric mixture model with finite number of components K.
 '''
 import numpy as np
 
-from bnpy.allocmodel import AllocModel
-from bnpy.suffstats import SuffStatBag
-from bnpy.util import NumericUtil
-from bnpy.util import logsumexp
-from bnpy.util import gammaln, digamma
-from bnpy.util.SparseRespUtil import sparsifyLogResp
-from DPMixtureModel import calcSummaryStats, calcHrespFromLP
+from allocmodel import AllocModel
+from suffstats import SuffStatBag
+from util import NumericUtil
+from util import logsumexp
+from util import gammaln, digamma
+from util.SparseRespUtil import sparsifyLogResp
+from DPMixtureModel import *
+# calcSummaryStats, calcHrespFromLP
 
 class FiniteMixtureModel(AllocModel):
 

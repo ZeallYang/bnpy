@@ -6,8 +6,10 @@ Initialize suff stats for observation models via Bregman clustering.
 import re
 import numpy as np
 import bnpy.data
-
+from bnpy.data.XData import XData
+from bnpy.data.GroupXData import GroupXData
 from bnpy.util import split_str_into_fixed_width_lines
+
 from FromTruth import \
     convertLPFromHardToSoft, \
     convertLPFromTokensToDocs, \
@@ -45,7 +47,7 @@ def init_global_params(hmodel, Data, **kwargs):
 
             if 'logFunc' not in kwargs:
                 def logFunc(msg):
-                    print msg
+                    print( msg)
                 kwargs['logFunc'] = logFunc
 
     '''
@@ -205,7 +207,7 @@ def initSS_BregmanDiv(
     neworder = np.arange(xSS.K)    
     old2newID=dict(zip(oldids_bigtosmall, neworder))
     targetZnew = -1 * np.ones_like(targetZ)
-    for oldk in xrange(xSS.K):
+    for oldk in range(xSS.K):
         old_mask = targetZ == oldk
         targetZnew[old_mask] = old2newID[oldk]
     assert np.all(targetZnew >= 0)
@@ -258,7 +260,7 @@ def runKMeans_BregmanDiv(
             Z[chosenZ] = np.arange(chosenZ.size)
     Lscores = list()
     prevN = np.zeros(K)
-    for riter in xrange(Niter):
+    for riter in range(Niter):
         Div = obsModel.calcSmoothedBregDiv(
             X=X, Mu=Mu, W=W,
             includeOnlyFastTerms=True, 
@@ -282,11 +284,11 @@ def runKMeans_BregmanDiv(
                 if logFunc:
                     logFunc(msg)
                 else:
-                    print msg
+                    print( msg)
                 assert np.all(np.diff(Lscores) <= 1e-5)
 
         N = np.zeros(K)
-        for k in xrange(K):
+        for k in range(K):
             if W is None:
                 W_k = None
                 N[k] = np.sum(Z==k)
@@ -433,8 +435,9 @@ def makeDataSubsetByThresholdResp(
             K=K,
             minRespForEachTargetAtom=minRespForEachTargetAtom,
             **kwargs)
-    assert isinstance(Data, bnpy.data.XData) or \
-        isinstance(Data, bnpy.data.GroupXData)
+    # print(type(Data).__name__)
+    assert type(Data).__name__== 'XData' or type(Data).__name__=='GroupXData'
+    # assert isinstance(Data, XData) or isinstance(Data, GroupXData)
     Natoms_total = Data.X.shape[0]
     atomType = 'atoms'
     if curLP is None:

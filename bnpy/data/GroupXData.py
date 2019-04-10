@@ -261,7 +261,7 @@ class GroupXData(XData):
         newXPrevList = list()
         newDocRange = np.zeros(len(docMask) + 1)
         newPos = 1
-        for d in xrange(len(docMask)):
+        for d in range(len(docMask)):
             start = self.doc_range[docMask[d]]
             stop = self.doc_range[docMask[d] + 1]
             newXList.append(self.X[start:stop])

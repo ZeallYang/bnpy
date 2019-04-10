@@ -23,8 +23,8 @@ ObsModelConstructorsByName = {
 # Make constructor accessible by nickname and fullname
 # Nickname = 'Gauss'
 # Fullname = 'GaussObsModel'
-for val in ObsModelConstructorsByName.values():
-    fullname = str(val.__name__)
-    ObsModelConstructorsByName[fullname] = val
+#for val in ObsModelConstructorsByName.values():
+#   fullname = str(val.__name__)
+#   ObsModelConstructorsByName[fullname] = val
 
 ObsModelNameSet = set(ObsModelConstructorsByName.keys())

@@ -5,7 +5,7 @@ import time
 
 from scipy.special import digamma
 
-from CPPLoader import LoadFuncFromCPPLib
+from util.lib.sparseResp.CPPLoader import LoadFuncFromCPPLib
 
 curdir = os.path.sep.join(os.path.abspath(__file__).split(os.path.sep)[:-1])
 sparseLocalStepManyDocs_cpp = LoadFuncFromCPPLib(
@@ -167,13 +167,13 @@ def compareLocalStep(Data, model, **LPkwargs):
         Data, model, **LPkwargs)
     cpptime = time.time() - stime
 
-    print "%8.3f sec | python" % (pytime)
-    print "%8.3f sec | cpp" % (cpptime)
-    print "Comparing Python vs C++ LocalStepManyDocs implementations..."
-    print '    nDoc: %s' % (Data.nDoc)
-    print '       K: %s' % (model.allocModel.K)
+    print( "%8.3f sec | python" % (pytime))
+    print( "%8.3f sec | cpp" % (cpptime))
+    print( "Comparing Python vs C++ LocalStepManyDocs implementations...")
+    print( '    nDoc: %s' % (Data.nDoc))
+    print( '       K: %s' % (model.allocModel.K))
     for KwArgName in ['nCoordAscentItersLP', 'convThrLP', 'restartLP']:
-        print '    %s: %s' % (KwArgName, LPkwargs[KwArgName])
+        print( '    %s: %s' % (KwArgName, LPkwargs[KwArgName]))
     for key in ['DocTopicCount', 'spR', 'iter']:
         compareLPValsAtKey(LPold, LPnew, key)
     return LPold, LPnew
@@ -191,9 +191,9 @@ def compareLPValsAtKey(LPold, LPnew, key):
                                LPnew[key].toarray(), rtol=0, atol=.0001)
         else:
             assert np.allclose(LPold[key], LPnew[key], rtol=0, atol=.0001)
-        print '  Good. Same value for LP[%s]' % (key)
+        print( '  Good. Same value for LP[%s]' % (key))
     except AssertionError as e:
-        print '  BAD!! Mismatch for LP[%s]' % (key)
+        print( '  BAD!! Mismatch for LP[%s]' % (key))
         raise(e)
 
 
@@ -312,7 +312,7 @@ if __name__ == '__main__':
             reviseActiveEveryLP=1,
             activeonlyLP=2,
             verboseLP=0)
-        print '>>> reviseActiveEveryLP=%d  nnzPerRow=%d' % (
-            reviseActiveEveryLP, nnzPerRow)
+        print( '>>> reviseActiveEveryLP=%d  nnzPerRow=%d' % (
+            reviseActiveEveryLP, nnzPerRow))
         model.calc_local_params(Data, **LPkwargs)
 

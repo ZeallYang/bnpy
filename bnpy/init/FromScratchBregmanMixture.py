@@ -127,7 +127,7 @@ def initSS_BregmanMixture(
     # where resp[n,k] = w[k] if z[n] = k, and 0 otherwise
     xtargetLP, _ = convertLPFromHardToSoft(
         dict(Z=targetZ), targetData, initGarbageState=0, returnZ=1)
-    print targetZ, '<<<'
+    print( targetZ, '<<<')
     if K == 1:
         xtargetLP['resp'] = np.zeros((xtargetLP['resp'].shape[0], 1))
 
@@ -167,8 +167,8 @@ def initSS_BregmanMixture(
     # By fixing up the cluster means Mu and assignments Z
     Mu = [Mu[k] for k in oldids_bigtosmall] 
     neworder = np.arange(xSS.K)
-    print neworder
-    print oldids_bigtosmall   
+    print( neworder)
+    print(oldids_bigtosmall )
     old2newID=dict(zip(oldids_bigtosmall, neworder))
     targetZnew = -1 * np.ones_like(targetZ)
     for oldk in xrange(xSS.K):
@@ -265,8 +265,8 @@ def initKMeans_BregmanMixture(Data, K, obsModel, seed=0,
             optim_method=optim_method)
         time_k = time.time()
         if verbose:
-            print " completed round %3d/%d after %6.1f sec" % (
-                k+1, K, time_k - starttime)
+            print( " completed round %3d/%d after %6.1f sec" % (
+                k+1, K, time_k - starttime))
     # Every selected doc should have zero distance
     minDiv[chosenZ[setOneToPriorMean:]] = 0
     # Compute final score and add to the list
@@ -408,9 +408,9 @@ if __name__ == '__main__':
         chosenZ, Mu, minDiv, sumDataTerm, scoreVsK = initKMeans_BregmanMixture(
             Data, K, obsModel, seed=trial)
         score = np.sum(minDiv)
-        print "init %d/%d : sum(minDiv) %8.2f" % (
-            trial+1, nTrial, np.sum(minDiv))
+        print( "init %d/%d : sum(minDiv) %8.2f" % (
+            trial+1, nTrial, np.sum(minDiv)))
         if score < bestScore:
             bestScore = score
             bestMu = Mu
-            print "*** New best"
+            print( "*** New best")

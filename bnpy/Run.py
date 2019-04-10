@@ -200,13 +200,13 @@ def _run_task_internal(jobname, taskid, nTask,
         import bnpy.deletemove.DLogger as DeleteLogger
         DeleteLogger.configure(task_output_path, doSaveToDisk, doWriteStdOut)
     if learnAlg.hasMove('merge'):
-        import bnpy.mergemove.MLogger as MergeLogger
+        import mergemove.MLogger as MergeLogger
         MergeLogger.configure(task_output_path, doSaveToDisk, doWriteStdOut)
     if learnAlg.hasMove('shuffle'):
-        import bnpy.mergemove.SLogger as SLogger
+        import mergemove.SLogger as SLogger
         SLogger.configure(task_output_path, doSaveToDisk, doWriteStdOut)
     if str(type(hmodel.allocModel)).count('TopicModel'):
-        import bnpy.allocmodel.topics.LocalStepLogger as LocalStepLogger
+        import allocmodel.topics.LocalStepLogger as LocalStepLogger
         LocalStepLogger.configure(task_output_path, doSaveToDisk, doWriteStdOut)
 
     # Set up logging for how long each step of the alg takes.
@@ -487,7 +487,7 @@ def createUniqueRandomSeed(jobname, taskID=0):
     if len(jobname) > 5:
         jobname = jobname[:5]
 
-    seed = int(hashlib.md5(jobname + str(taskID)).hexdigest(), 16) % 1e7
+    seed = int(hashlib.md5((jobname + str(taskID)).encode('utf-8') ).hexdigest(), 16) % 1e7
     return int(seed)
 
 

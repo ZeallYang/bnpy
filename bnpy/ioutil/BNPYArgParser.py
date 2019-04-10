@@ -1,5 +1,5 @@
 import argparse
-import ConfigParser
+import configparser
 import os
 import sys
 import numpy as np
@@ -189,7 +189,8 @@ def kwargs_to_arglist(**kwargs):
     ['--a', '5']
     '''
     keys = kwargs.keys()
-    keys.sort(key=len)  # sorty by length, smallest to largest
+    keys = sorted(keys, key=len)
+    # keys.sort(key=len)  # sorty by length, smallest to largest
     arglist = list()
     SafeDict = dict()
     for key in keys:
@@ -279,7 +280,8 @@ def fillParserWithDefaultsFromConfigFile(parser, confFile,
         DefDict = dict(config.items(curSecName))
         try:
             HelpDict = dict(config.items(curSecName + "Help"))
-        except ConfigParser.NoSectionError:
+        #except ConfigParser.NoSectionError:
+        except configparser.NoSectionError:
             HelpDict = dict()
 
         group = parser.add_argument_group(curSecName)
@@ -302,7 +304,8 @@ def fillParserWithDefaultsFromConfigFile(parser, confFile,
 def _readConfigFile(filepath):
     ''' Read entire configuration from a .conf file
     '''
-    config = ConfigParser.SafeConfigParser()
+    config = configparser.ConfigParser()
+        #ConfigParser.SafeConfigParser()
     config.optionxform = str
     config.read(filepath)
     return config

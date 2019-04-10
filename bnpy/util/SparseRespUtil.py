@@ -192,7 +192,7 @@ def test_correctness(R=None, N=3, K=10,
         for nnzPerRow in nnzList:
             nnzPerRow = np.minimum(nnzPerRow, R.shape[1])
             nnzPerRow = np.maximum(nnzPerRow, 1)
-            print 'nnzPerRow=', nnzPerRow
+            print( 'nnzPerRow=', nnzPerRow)
             for i in range(len(funcList)):
                 for j in range(i + 1, len(funcList)):
                     func_i = funcList[i]
@@ -202,7 +202,7 @@ def test_correctness(R=None, N=3, K=10,
                     ans2 = func_j(R, nnzPerRow).toarray()
                     assert np.allclose(ans1, ans2)
                     assert np.allclose(np.sum(ans1 > 1e-5, axis=1), nnzPerRow)
-            print '  all pairs of funcs give same answer'
+            print( '  all pairs of funcs give same answer')
 
 
 def test_speed(R=None, N=3, K=10,
@@ -220,10 +220,10 @@ def test_speed(R=None, N=3, K=10,
     for nnzPerRow in nnzList:
         nnzPerRow = np.minimum(nnzPerRow, R.shape[1])
         nnzPerRow = np.maximum(nnzPerRow, 1)
-        print 'nnzPerRow=', nnzPerRow
+        print('nnzPerRow=', nnzPerRow)
         for func in funcList:
             if func.__name__.count('forloop') and N * K > 1e6:
-                print 'SKIPPED | ', func.__name__
+                print( 'SKIPPED | ', func.__name__)
                 continue
             do_timing_test_for_func(func, (R, nnzPerRow), nRep=nRep)
 
@@ -235,8 +235,8 @@ def do_timing_test_for_func(func, args, nRep=1):
         func(*args)
         tstop = time.time()
         times.append(tstop - tstart)
-    print " AVG %.4f sec  MEDIAN %.4f sec | %s" % (
-        np.mean(times), np.median(times), func.__name__)
+    print( " AVG %.4f sec  MEDIAN %.4f sec | %s" % (
+        np.mean(times), np.median(times), func.__name__))
 
 
 def test_speed_np_builtins(size, nLoop, nRep=1):
@@ -264,9 +264,9 @@ def test_speed_np_builtins(size, nLoop, nRep=1):
 
 
 def pprint_timeit(*args, **kwargs):
-    print kwargs['stmt']
+    print( kwargs['stmt'])
     result_list = timeit.repeat(*args, **kwargs)
-    print '  %9.6f sec' % (np.min(result_list))
+    print( '  %9.6f sec' % (np.min(result_list)))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

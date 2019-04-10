@@ -14,7 +14,7 @@ import os
 import sys
 
 from PlotUtil import pylab
-import bnpy.ioutil.BNPYArgParser as BNPYArgParser
+import ioutil.BNPYArgParser as BNPYArgParser
 import bnpy.viz
 from bnpy.ioutil import ModelReader
 from bnpy.viz.TaskRanker import rankTasksForSingleJobOnDisk
@@ -74,8 +74,8 @@ def plotCompsForTask(task_output_path, lap=None,
     queryLap = lap
     hmodel, lap = bnpy.load_model_at_lap(task_output_path, queryLap)
     if queryLap is not None and not np.allclose(lap, queryLap):
-        print 'Query lap %.2f unavailable. Using %.2f instead.' \
-            % (queryLap, lap)
+        print( 'Query lap %.2f unavailable. Using %.2f instead.' \
+            % (queryLap, lap))
     plotCompsFromHModel(hmodel, **kwargs)
 
 
@@ -120,7 +120,7 @@ def plotCompsFromSS(hmodel, SS, outfilepath=None, **kwargs):
     if outfilepath is not None:
         pylab.savefig(outfilepath)
         pylab.close('all')
-        print 'Wrote: %s' % (outfilepath)
+        print( 'Wrote: %s' % (outfilepath))
 
 def parseArgs(**kwargs):
     ''' Read args from stdin into defined dict fields

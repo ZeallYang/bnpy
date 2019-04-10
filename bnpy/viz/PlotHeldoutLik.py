@@ -112,7 +112,7 @@ def plot_all_tasks_for_job(jobpath, label, taskids=None,
     ''' Create line plot in current figure for each task/run of jobpath
     '''
     if not os.path.exists(jobpath):
-        print 'PATH NOT FOUND', jobpath
+        print( 'PATH NOT FOUND', jobpath)
         return None
     if not yvar.startswith('avg') and yvar.count('Kactive') == 0:
         yvar = 'avg' + yvar

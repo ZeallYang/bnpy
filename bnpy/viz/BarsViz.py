@@ -194,8 +194,8 @@ def plotBarsForTopicMATFile(matfilename, sortBy=None, keepWorst=0,
     else:
         topics, probs, alph = bnpy.ioutil.ModelReader.loadTopicModel(
             matfilename, returnTPA=1)
-    print 'total K=', topics.shape[0]
-    print 'beta>0.0001 K=', np.sum(probs > .0001)
+    print( 'total K=', topics.shape[0])
+    print( 'beta>0.0001 K=', np.sum(probs > .0001))
     if levels is not None:
         assert topics.max() > 1.0
         topics = np.floor(topics)
@@ -215,12 +215,12 @@ def plotBarsForTopicMATFile(matfilename, sortBy=None, keepWorst=0,
             L = len(sortIDs)
             sortIDs = sortIDs[:L + worstLoc]
             probs = probs[:L + worstLoc]
-            print probs[-1], '<<<< first above cutoff'
+            print( probs[-1], '<<<< first above cutoff')
             keepIDs = np.hstack(
                 [sortIDs[:(Kmax - keepWorst)], sortIDs[-keepWorst:]])
-            print probs[:(Kmax - keepWorst)]
-            print probs[-keepWorst:]
-            print len(sortIDs), '<<< count above cutoff'
+            print( probs[:(Kmax - keepWorst)])
+            print( probs[-keepWorst:])
+            print( len(sortIDs), '<<< count above cutoff')
             topics = topics[keepIDs]
         else:
             topics = topics[sortIDs[:Kmax]]
@@ -273,8 +273,8 @@ def showTopicsAsSquareImages(topics,
 
     for plotID, compID in enumerate(compListToPlot):
         if plotID >= Kmax:
-            print 'DISPLAY LIMIT EXCEEDED. Showing %d/%d components' \
-                % (plotID, len(activeCompIDs))
+            print( 'DISPLAY LIMIT EXCEEDED. Showing %d/%d components' \
+                % (plotID, len(activeCompIDs)))
             break
 
         if compID not in activeCompIDs:

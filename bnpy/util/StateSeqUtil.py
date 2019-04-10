@@ -50,7 +50,7 @@ def calcHammingDistance(zTrue, zHat, excludeNegLabels=1, verbose=0,
         good_tstep_mask = zTrue >= 0
         nGood = np.sum(good_tstep_mask)
         if verbose and np.sum(good_tstep_mask) < zTrue.size:
-            print 'EXCLUDED %d/%d timesteps' % (np.sum(zTrue < 0), zTrue.size)
+            print( 'EXCLUDED %d/%d timesteps' % (np.sum(zTrue < 0), zTrue.size))
         dist = np.sum(zTrue[good_tstep_mask] != zHat[good_tstep_mask])
         dist = dist/float(nGood)
     else:

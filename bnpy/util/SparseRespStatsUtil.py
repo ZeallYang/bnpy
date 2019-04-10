@@ -150,8 +150,8 @@ def do_timing_test_for_func(func, args, kwargs, nRep=1):
         func(*args, **kwargs)
         tstop = time.time()
         times.append(tstop - tstart)
-    print " AVG %.4f sec  MEDIAN %.4f sec | %s" % (
-        np.mean(times), np.median(times), func.__name__)
+    print( " AVG %.4f sec  MEDIAN %.4f sec | %s" % (
+        np.mean(times), np.median(times), func.__name__))
 
 
 def test_correctness(X=None, R=None, nnzPerRow=2,
@@ -179,7 +179,7 @@ def test_correctness(X=None, R=None, nnzPerRow=2,
                 elif ans_j.size < K:
                     ans_i = np.sum(ans_i)
             assert np.allclose(ans_i, ans_j)
-    print '  all pairs of funcs give same answer'
+    print( '  all pairs of funcs give same answer')
 
 def _make_kwarg_dict(
                 X=None, R=None, nnzPerRow=2,
@@ -208,9 +208,9 @@ if __name__ == '__main__':
     parser.add_argument('--prefix', type=str, default='calcRXX_')
     args = parser.parse_args()
 
-    print 'TESTING FUNCTIONS NAMED ', args.prefix
+    print( 'TESTING FUNCTIONS NAMED ', args.prefix)
     for nnzPerRow in [1, 2, 4]:
-        print 'nnzPerRow=%d' % (nnzPerRow)
+        print( 'nnzPerRow=%d' % (nnzPerRow))
         test_correctness(N=1, K=10, D=2,
                 nnzPerRow=nnzPerRow, prefix=args.prefix)
         test_correctness(N=33, K=10, D=2,

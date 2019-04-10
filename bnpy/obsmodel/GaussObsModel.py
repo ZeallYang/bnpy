@@ -412,7 +412,7 @@ class GaussObsModel(AbstractObsModel):
         m = (Prior.kappa * Prior.m + SS.x) / kappa[:, np.newaxis]
         Bmm = Prior.B + Prior.kappa * np.outer(Prior.m, Prior.m)
         B = SS.xxT + Bmm[np.newaxis, :]
-        for k in xrange(B.shape[0]):
+        for k in range(B.shape[0]):
             B[k] -= kappa[k] * np.outer(m[k], m[k])
         return nu, B, m, kappa
 
@@ -514,7 +514,7 @@ class GaussObsModel(AbstractObsModel):
             B = Post.B  # update in place, no reallocation!
         else:
             B = np.empty((self.K, self.D, self.D))
-        for k in xrange(self.K):
+        for k in range(self.K):
             B[k] = Post.Bnat[k] - \
                 np.outer(Post.km[k], Post.km[k]) / Post.kappa[k]
         Post.setField('B', B, dims=('K', 'D', 'D'))
@@ -528,7 +528,7 @@ class GaussObsModel(AbstractObsModel):
         '''
         K = self.Post.K
         L = np.zeros((Data.nObs, K))
-        for k in xrange(K):
+        for k in range(K):
             L[:, k] = - 0.5 * self.D * LOGTWOPI \
                 + 0.5 * self.GetCached('E_logdetL', k)  \
                 - 0.5 * self._mahalDist_Post(Data.X, k)
@@ -565,7 +565,7 @@ class GaussObsModel(AbstractObsModel):
         elbo = np.zeros(SS.K)
         Post = self.Post
         Prior = self.Prior
-        for k in xrange(SS.K):
+        for k in range(SS.K):
             elbo[k] = c_Diff(Prior.nu,
                              self.GetCached('logdetB'),
                              Prior.m, Prior.kappa,
@@ -630,12 +630,12 @@ class GaussObsModel(AbstractObsModel):
         Prior = self.Prior
         cPrior = c_Func(Prior.nu, Prior.B, Prior.m, Prior.kappa)
         c = np.zeros(SS.K)
-        for k in xrange(SS.K):
+        for k in range(SS.K):
             c[k] = c_Func(Post.nu[k], Post.B[k], Post.m[k], Post.kappa[k])
 
         Gap = np.zeros((SS.K, SS.K))
-        for j in xrange(SS.K):
-            for k in xrange(j + 1, SS.K):
+        for j in range(SS.K):
+            for k in range(j + 1, SS.K):
                 nu, B, m, kappa = self.calcPostParamsForComp(SS, j, k)
                 cjk = c_Func(nu, B, m, kappa)
                 Gap[j, k] = c[j] + c[k] - cPrior - cjk
@@ -989,7 +989,7 @@ class GaussObsModel(AbstractObsModel):
         CovX = eps * prior_covx
 
         Div = np.zeros((N, K))
-        for k in xrange(K):
+        for k in range(K):
             chol_CovMu_k = np.linalg.cholesky(Mu[k][0])
             logdet_CovMu_k = 2.0 * np.sum(np.log(np.diag(chol_CovMu_k)))
             tr_InvMu_CovX_k = np.trace(np.linalg.solve(
@@ -1064,7 +1064,7 @@ class GaussObsModel(AbstractObsModel):
  
         s, logdet = np.linalg.slogdet(priorCov)
         logdet_priorCov = s * logdet
-        for k in xrange(K):
+        for k in range(K):
             Cov_k = Mu[k][0]
             s, logdet = np.linalg.slogdet(Cov_k)
             logdet_Cov_k = s * logdet
@@ -1151,7 +1151,7 @@ def calcSummaryStats(Data, SS, LP, **kwargs):
         sqrtResp_k = np.sqrt(resp[:, 0])
         sqrtRX_k = sqrtResp_k[:, np.newaxis] * Data.X
         S_xxT[0] = dotATA(sqrtRX_k)
-        for k in xrange(1, K):
+        for k in range(1, K):
             np.sqrt(resp[:, k], out=sqrtResp_k)
             np.multiply(sqrtResp_k[:, np.newaxis], Data.X, out=sqrtRX_k)
             S_xxT[k] = dotATA(sqrtRX_k)

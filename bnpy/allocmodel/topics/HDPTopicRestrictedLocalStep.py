@@ -139,7 +139,7 @@ def restrictedLocalStep_HDPTopicModel(
         restrictedLocalStepForSingleDoc_Func = \
             restrictedLocalStepForSingleDoc_HDPTopicModel
     else:
-        print 'SLOW<<<!!'
+        print( 'SLOW<<<!!')
         restrictedLocalStepForSingleDoc_Func = \
             restrictedLocalStepForSingleDoc_HDPTopicModel_SlowerButStable
 
@@ -300,7 +300,7 @@ def restrictedLocalStepForSingleDoc_HDPTopicModel(
         xLPslice['_maxDiff'][d] = maxDiff_d
         # Make proposal resp for relevant atoms in current doc d
         if np.any(np.isnan(xDocTopicCount_d)):
-            print 'WHOA! NaN ALERT'
+            print( 'WHOA! NaN ALERT')
             # Edge case! Common only when deleting... 
             # Recover from numerical issues in coord ascent
             # by falling back to likelihood only to make resp

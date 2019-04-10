@@ -447,7 +447,7 @@ class MemoVBMovesAlg(LearnAlg):
             Fields to save determined by the memoLPkeys attribute of this alg.
         '''
         batchLP = dict(**batchLP) # make a copy
-        allkeys = batchLP.keys()
+        allkeys = list(batchLP.keys())
         for key in allkeys:
             if key not in self.memoLPkeys:
                 del batchLP[key]
@@ -1613,8 +1613,8 @@ class MemoVBMovesAlg(LearnAlg):
         evCheck = hmodel.calc_evidence(SS=SS2)
 
         if self.algParams['debug'].count('quiet') == 0:
-            print '% 14.8f evBound from agg SS' % (evBound)
-            print '% 14.8f evBound from sum over SSmemory' % (evCheck)
+            print( '% 14.8f evBound from agg SS' % (evBound))
+            print( '% 14.8f evBound from sum over SSmemory' % (evCheck))
         if self.algParams['debug'].count('interactive'):
             isCorrect = np.allclose(SS.getCountVec(), SS2.getCountVec()) \
                 and np.allclose(evBound, evCheck)

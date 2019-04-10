@@ -306,8 +306,8 @@ class MOVBAlg(LearnAlg):
         evCheck = hmodel.calc_evidence(SS=SS2)
 
         if self.algParams['debug'].count('quiet') == 0:
-            print '% 14.8f loss from agg SS' % (loss)
-            print '% 14.8f loss from sum over SSmemory' % (evCheck)
+            print( '% 14.8f loss from agg SS' % (loss))
+            print( '% 14.8f loss from sum over SSmemory' % (evCheck))
         if self.algParams['debug'].count('interactive'):
             isCorrect = np.allclose(SS.getCountVec(), SS2.getCountVec()) \
                 and np.allclose(loss, evCheck)
