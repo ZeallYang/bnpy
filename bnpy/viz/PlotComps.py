@@ -13,14 +13,14 @@ import argparse
 import os
 import sys
 
-from PlotUtil import pylab
+from viz.PlotUtil import pylab
 import ioutil.BNPYArgParser as BNPYArgParser
-import bnpy.viz
-from bnpy.ioutil import ModelReader
-from bnpy.viz.TaskRanker import rankTasksForSingleJobOnDisk
-from bnpy.viz.PlotTrace import taskidsHelpMsg
-from bnpy.viz.PrintTopics import uidsAndCounts2strlist
-from bnpy.ioutil.DataReader import loadDataFromSavedTask
+import viz
+from ioutil import ModelReader
+from viz.TaskRanker import rankTasksForSingleJobOnDisk
+from viz.PlotTrace import taskidsHelpMsg
+from viz.PrintTopics import uidsAndCounts2strlist
+from ioutil.DataReader import loadDataFromSavedTask
 
 def plotCompsFromHModel(hmodel, **kwargs):
     """ Show plot of learned clusters for provided model.

@@ -2,7 +2,7 @@ import logging
 import os
 import sys
 from collections import defaultdict
-from bnpy.util import split_str_into_fixed_width_lines
+from util import split_str_into_fixed_width_lines
 
 # Configure Logger
 Log = None

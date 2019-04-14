@@ -7,11 +7,11 @@ import argparse
 # import networkx as nx
 
 import bnpy
-from bnpy.util.StateSeqUtil import convertStateSeq_MAT2list
-from bnpy.ioutil import BNPYArgParser
-from bnpy.viz.TaskRanker import rankTasksForSingleJobOnDisk
-from bnpy.viz import TaskRanker
-from bnpy.viz import PlotUtil
+from util.StateSeqUtil import convertStateSeq_MAT2list
+from ioutil import BNPYArgParser
+from viz.TaskRanker import rankTasksForSingleJobOnDisk
+from viz import TaskRanker
+from viz import PlotUtil
 pylab = PlotUtil.pylab
 PlotUtil.ConfigPylabDefaults(pylab)
 

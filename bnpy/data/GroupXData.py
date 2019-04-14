@@ -9,9 +9,9 @@ GroupXData
 import numpy as np
 from collections import namedtuple
 
-from XData import XData
-from bnpy.util import as1D, as2D, as3D, toCArray
-from bnpy.util import numpyToSharedMemArray, sharedMemToNumpyArray
+from data.XData import XData
+from util import as1D, as2D, as3D, toCArray
+from util import numpyToSharedMemArray, sharedMemToNumpyArray
 
 
 class GroupXData(XData):

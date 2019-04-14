@@ -12,10 +12,10 @@ import scipy.io
 import os
 import glob
 
-from ModelWriter import makePrefixForLap
-from bnpy.allocmodel import AllocModelConstructorsByName
-from bnpy.obsmodel import ObsModelConstructorsByName
-from bnpy.util import toCArray, as1D, as2D
+from ioutil.ModelWriter import makePrefixForLap
+from allocmodel import AllocModelConstructorsByName
+from obsmodel import ObsModelConstructorsByName
+from util import toCArray, as1D, as2D
 
 
 def getPrefixForLapQuery(taskpath, lapQuery):

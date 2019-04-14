@@ -13,11 +13,11 @@ import os
 from collections import namedtuple
 import pandas as pd
 
-from DataObj import DataObj
+from data.DataObj import DataObj
 
 from bnpy import DATASET_PATH
-from bnpy.util import as1D, as2D, toCArray
-from bnpy.util import numpyToSharedMemArray, sharedMemToNumpyArray
+from util import as1D, as2D, toCArray
+from util import numpyToSharedMemArray, sharedMemToNumpyArray
 
 
 class XData(DataObj):

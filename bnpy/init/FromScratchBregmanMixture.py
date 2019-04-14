@@ -2,16 +2,16 @@ import numpy as np
 import re
 import time
 import bnpy.data
-from bnpy.util.OptimizerForPi import \
+from util.OptimizerForPi import \
     estimatePiForDoc_frankwolfe, \
     estimatePiForDoc_graddescent, \
     pi2str
-from FromTruth import \
+from init.FromTruth import \
     convertLPFromHardToSoft, \
     convertLPFromTokensToDocs, \
     convertLPFromDocsToTokens, \
     convertLPFromDocsToTypes
-from FromScratchBregman import makeDataSubsetByThresholdResp
+from init.FromScratchBregman import makeDataSubsetByThresholdResp
 
 def init_global_params(hmodel, Data,
         initObsModelScale=0.0,

@@ -14,7 +14,7 @@ import logging
 import os
 import sys
 import scipy.io
-import ElapsedTimeLogger
+import learnalg.ElapsedTimeLogger
 
 from sklearn.externals import joblib
 from bnpy.ioutil import ModelWriter

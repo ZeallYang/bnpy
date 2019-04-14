@@ -1,14 +1,14 @@
 import numpy as np
-import BLogger
+import birthmove.BLogger
 
-from bnpy.allocmodel.mix.DPMixtureRestrictedLocalStep import \
+from allocmodel.mix.DPMixtureRestrictedLocalStep import \
     summarizeRestrictedLocalStep_DPMixtureModel, \
     makeExpansionSSFromZ_DPMixtureModel
 
-from bnpy.allocmodel.topics.HDPTopicRestrictedLocalStep2 import \
+from allocmodel.topics.HDPTopicRestrictedLocalStep2 import \
     summarizeRestrictedLocalStep_HDPTopicModel
 
-from bnpy.allocmodel.topics.HDPTopicRestrictedLocalStep import \
+from allocmodel.topics.HDPTopicRestrictedLocalStep import \
     makeExpansionSSFromZ_HDPTopicModel
     #summarizeRestrictedLocalStep_HDPTopicModel
 

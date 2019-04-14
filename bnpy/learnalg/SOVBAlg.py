@@ -7,10 +7,11 @@ import os
 import numpy as np
 import scipy.sparse
 
-from LearnAlg import LearnAlg
-from LearnAlg import makeDictOfAllWorkspaceVars
-import ElapsedTimeLogger
-from bnpy.util.SparseRespUtil import sparsifyResp
+from learnalg.LearnAlg import LearnAlg
+from learnalg.LearnAlg import makeDictOfAllWorkspaceVars
+from learnalg.ElapsedTimeLogger import *
+# import leanalg.ElapsedTimeLogger
+from util.SparseRespUtil import sparsifyResp
 
 class SOVBAlg(LearnAlg):
 

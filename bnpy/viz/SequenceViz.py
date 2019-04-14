@@ -33,12 +33,12 @@ import argparse
 
 from matplotlib import pylab
 
-from bnpy.util.StateSeqUtil import convertStateSeq_MAT2list
-from bnpy.util.StateSeqUtil import convertStateSeq_list2flat
-from bnpy.util.StateSeqUtil import convertStateSeq_flat2list
-from bnpy.ioutil import BNPYArgParser
-from bnpy.viz.TaskRanker import rankTasksForSingleJobOnDisk
-from bnpy.viz.PlotTrace import taskidsHelpMsg
+from util.StateSeqUtil import convertStateSeq_MAT2list
+from util.StateSeqUtil import convertStateSeq_list2flat
+from util.StateSeqUtil import convertStateSeq_flat2list
+from ioutil import BNPYArgParser
+from viz.TaskRanker import rankTasksForSingleJobOnDisk
+from viz.PlotTrace import taskidsHelpMsg
 
 
 def plotSingleJob(dataset, jobname, taskids='1', lap='final',

@@ -1,8 +1,8 @@
 import os
 import numpy as np
-import bnpy.data
+import data
 
-from bnpy.data.DataIterator import DataIterator
+from data.DataIterator import DataIterator
 
 def loadDataFromSavedTask(taskoutpath, dataSplitName='train', **kwargs):
     ''' Load data object used for training a specified saved run.

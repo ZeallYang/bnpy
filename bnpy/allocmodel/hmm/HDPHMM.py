@@ -2,17 +2,17 @@ import copy
 import numpy as np
 import logging
 
-import hmm.HMMUtil
-from hmm.HDPHMMUtil import ELBOTermDimMap, calcELBO
-from hmm.HDPHMMUtil import calcELBO_LinearTerms, calcELBO_NonlinearTerms
+import allocmodel.hmm.HMMUtil
+from allocmodel.hmm.HDPHMMUtil import ELBOTermDimMap, calcELBO
+from allocmodel.hmm.HDPHMMUtil import calcELBO_LinearTerms, calcELBO_NonlinearTerms
 
-from bnpy.allocmodel import AllocModel
-from bnpy.suffstats import SuffStatBag
-from bnpy.util import digamma, gammaln
-from bnpy.util import StickBreakUtil
-from bnpy.allocmodel.topics import OptimizerRhoOmega
-from bnpy.allocmodel.topics.HDPTopicUtil import c_Beta, c_Dir, L_top
-from bnpy.util import sharedMemToNumpyArray, numpyToSharedMemArray
+from allocmodel import AllocModel
+from suffstats import SuffStatBag
+from util import digamma, gammaln
+from util import StickBreakUtil
+from allocmodel.topics import OptimizerRhoOmega
+from allocmodel.topics.HDPTopicUtil import c_Beta, c_Dir, L_top
+from util import sharedMemToNumpyArray, numpyToSharedMemArray
 
 Log = logging.getLogger('bnpy')
 

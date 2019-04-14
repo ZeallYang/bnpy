@@ -17,7 +17,7 @@ import numpy as np
 import scipy.sparse
 import timeit
 
-from EntropyUtil import calcRlogR, calcRlogRdotv
+from util.EntropyUtil import calcRlogR, calcRlogRdotv
 
 def LoadConfig():
     global Config, cfgfilepath

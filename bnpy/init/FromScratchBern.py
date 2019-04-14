@@ -6,8 +6,8 @@ from scratch.
 '''
 
 import numpy as np
-from bnpy.data import XData, BagOfWordsData
-from bnpy.suffstats import SuffStatBag
+from data import XData, BagOfWordsData
+from suffstats import SuffStatBag
 from scipy.cluster.vq import kmeans2
 
 

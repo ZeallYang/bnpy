@@ -2,8 +2,8 @@ import numpy as np
 import bnpy.viz
 import os
 
-from bnpy.viz.PlotComps import plotCompsFromSS
-from bnpy.viz.PrintTopics import count2str
+from viz.PlotComps import plotCompsFromSS
+from viz.PrintTopics import count2str
 
 def cleanupDeleteSmallClusters(
         xSSslice, minNumAtomsToStay, xInitLPslice=None, pprintCountVec=None):

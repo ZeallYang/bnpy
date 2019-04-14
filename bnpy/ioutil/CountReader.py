@@ -2,7 +2,7 @@ import sys
 import os
 import scipy.sparse
 import numpy as np
-from bnpy.util import argsort_bigtosmall_stable
+from util import argsort_bigtosmall_stable
 
 
 def loadKeffForTask(

@@ -5,12 +5,12 @@ Initialize suff stats for observation models via Bregman clustering.
 '''
 import re
 import numpy as np
-import bnpy.data
-from bnpy.data.XData import XData
-from bnpy.data.GroupXData import GroupXData
-from bnpy.util import split_str_into_fixed_width_lines
+import data
+from data.XData import XData
+from data.GroupXData import GroupXData
+from util import split_str_into_fixed_width_lines
 
-from FromTruth import \
+from init.FromTruth import \
     convertLPFromHardToSoft, \
     convertLPFromTokensToDocs, \
     convertLPFromDocsToTokens, \

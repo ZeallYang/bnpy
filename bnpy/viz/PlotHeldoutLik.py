@@ -6,9 +6,9 @@ import os
 import glob
 import scipy.io
 
-from PlotUtil import pylab
-from bnpy.ioutil import BNPYArgParser
-from JobFilter import filterJobs
+from viz.PlotUtil import pylab
+from ioutil import BNPYArgParser
+from viz.JobFilter import filterJobs
 
 import matplotlib
 matplotlib.rcParams['text.usetex'] = False

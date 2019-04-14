@@ -4,7 +4,7 @@ import bnpy
 import glob
 import os
 
-import TaskRanker
+import viz.TaskRanker
 
 def makeBestJobPathViaGridSearch(
         jobpathPattern=None,

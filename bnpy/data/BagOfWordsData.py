@@ -12,7 +12,7 @@ import scipy.io
 import os
 from collections import namedtuple
 
-from DataObj import DataObj
+from data.DataObj import DataObj
 from util import as1D, toCArray
 from util import numpyToSharedMemArray, sharedMemToNumpyArray
 

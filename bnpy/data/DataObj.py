@@ -1,4 +1,4 @@
-from DataIterator import DataIterator
+from data.DataIterator import DataIterator
 
 class DataObj(object):
 

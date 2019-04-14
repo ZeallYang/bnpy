@@ -6,17 +6,17 @@ Assortative mixed membership stochastic blockmodel.
 import numpy as np
 import itertools
 
-from bnpy.allocmodel import AllocModel
-from bnpy.suffstats import SuffStatBag
-from bnpy.util import gammaln, digamma, EPS
+from allocmodel import AllocModel
+from suffstats import SuffStatBag
+from util import gammaln, digamma, EPS
 
-from bnpy.util import StickBreakUtil
-from bnpy.allocmodel.topics import OptimizerRhoOmegaBetter
-from bnpy.allocmodel.topics.HDPTopicUtil import c_Beta, c_Dir, L_top
+from util import StickBreakUtil
+from allocmodel.topics import OptimizerRhoOmegaBetter
+from allocmodel.topics.HDPTopicUtil import c_Beta, c_Dir, L_top
 
-from relational.FiniteAssortativeMMSB import FiniteAssortativeMMSB
-from relational.HDPMMSB import updateRhoOmega, updateThetaAndThetaRem, _beta2rhoomega
-from relational.HDPMMSB import initRhoOmegaFromScratch, initThetaFromScratch
+from allocmodel.relational.FiniteAssortativeMMSB import FiniteAssortativeMMSB
+from allocmodel.relational.HDPMMSB import updateRhoOmega, updateThetaAndThetaRem, _beta2rhoomega
+from allocmodel.relational.HDPMMSB import initRhoOmegaFromScratch, initThetaFromScratch
 
 class HDPAssortativeMMSB(FiniteAssortativeMMSB):
 

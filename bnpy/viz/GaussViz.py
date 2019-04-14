@@ -4,9 +4,9 @@ GaussViz.py
 Visualizing learned Gaussian mixture models.
 '''
 import numpy as np
-from PlotUtil import pylab
+from viz.PlotUtil import pylab
 
-from bnpy.util import as1D, as2D
+from util import as1D, as2D
 
 Colors = [(1, 0, 0),
           (1, 0, 1),

@@ -1,12 +1,12 @@
-from DiagGaussObsModel import DiagGaussObsModel
-from GaussObsModel import GaussObsModel
-from ZeroMeanGaussObsModel import ZeroMeanGaussObsModel
-from AutoRegGaussObsModel import AutoRegGaussObsModel
-from MultObsModel import MultObsModel
-from BernObsModel import BernObsModel
-from GaussRegressYFromFixedXObsModel \
+from obsmodel.DiagGaussObsModel import DiagGaussObsModel
+from obsmodel.GaussObsModel import GaussObsModel
+from obsmodel.ZeroMeanGaussObsModel import ZeroMeanGaussObsModel
+from obsmodel.AutoRegGaussObsModel import AutoRegGaussObsModel
+from obsmodel.MultObsModel import MultObsModel
+from obsmodel.BernObsModel import BernObsModel
+from obsmodel.GaussRegressYFromFixedXObsModel \
 	import GaussRegressYFromFixedXObsModel
-from GaussRegressYFromDiagGaussXObsModel \
+from obsmodel.GaussRegressYFromDiagGaussXObsModel \
 	import GaussRegressYFromDiagGaussXObsModel
 
 ObsModelConstructorsByName = {

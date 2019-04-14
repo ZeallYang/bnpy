@@ -1,5 +1,5 @@
 import numpy as np
-from bnpy.util import split_str_into_fixed_width_lines
+from util import split_str_into_fixed_width_lines
 
 def runKMeans_BregmanDiv_existing(
         X, Kfresh, obsModel,

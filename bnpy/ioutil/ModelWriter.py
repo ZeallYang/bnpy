@@ -13,7 +13,7 @@ import os
 from distutils.dir_util import mkpath
 from shutil import copy2
 from sys import platform
-from bnpy.util import as2D
+from util import as2D
 
 def makePrefixForLap(lap):
     """ Get string prefix for saving lap-specific info to disk.

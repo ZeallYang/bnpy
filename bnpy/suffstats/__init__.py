@@ -2,7 +2,7 @@
 suffstats module defines objects that represent sufficient statistics
 '''
 
-from ParamBag import ParamBag
-from SuffStatBag import SuffStatBag
+from suffstats.ParamBag import ParamBag
+from suffstats.SuffStatBag import SuffStatBag
 
 __all__ = ['SuffStatBag', 'ParamBag']

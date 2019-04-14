@@ -1,1 +1,1 @@
-from MPlanner import selectCandidateMergePairs
+from mergemove.MPlanner import selectCandidateMergePairs

@@ -15,13 +15,13 @@ For l,m = 1,...,K:
 
 
 import numpy as np
-from bnpy.util import logsumexp
-from bnpy.util import gammaln, digamma, EPS
-from bnpy.suffstats import SuffStatBag
-from bnpy.util import StateSeqUtil
+from util import logsumexp
+from util import gammaln, digamma, EPS
+from suffstats import SuffStatBag
+from util import StateSeqUtil
 
-from bnpy.allocmodel.mix.FiniteMixtureModel import FiniteMixtureModel
-from bnpy.allocmodel import AllocModel
+from allocmodel.mix.FiniteMixtureModel import FiniteMixtureModel
+from allocmodel import AllocModel
 
 
 class FiniteSMSB(FiniteMixtureModel):

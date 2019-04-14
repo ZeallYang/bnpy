@@ -4,14 +4,14 @@ Bayesian nonparametric mixture model with Dirichlet process prior.
 
 import numpy as np
 
-from bnpy.allocmodel import AllocModel
-from bnpy.suffstats import SuffStatBag
-from bnpy.util import NumericUtil
-from bnpy.util import gammaln, digamma, EPS
-from bnpy.util.StickBreakUtil import beta2rho
-from bnpy.util.SparseRespUtil import sparsifyLogResp
-from bnpy.util.SparseRespStatsUtil import calcSparseRlogR, calcSparseMergeRlogR
-from bnpy.util.ShapeUtil import toCArray, as1D
+from allocmodel import AllocModel
+from suffstats import SuffStatBag
+from util import NumericUtil
+from util import gammaln, digamma, EPS
+from util.StickBreakUtil import beta2rho
+from util.SparseRespUtil import sparsifyLogResp
+from util.SparseRespStatsUtil import calcSparseRlogR, calcSparseMergeRlogR
+from util.ShapeUtil import toCArray, as1D
 ELBOTermDimMap = dict(
     Hresp='K',
 )

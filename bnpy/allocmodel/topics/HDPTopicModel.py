@@ -1,23 +1,23 @@
 import numpy as np
 import logging
 
-import topics.LocalStepManyDocs
-from topics.OptimizerRhoOmegaBetter import *
+import allocmodel.topics.LocalStepManyDocs
+from allocmodel.topics.OptimizerRhoOmegaBetter import *
 
-from topics.HDPTopicUtil import calcELBO
-from topics.HDPTopicUtil import calcELBO_LinearTerms, calcELBO_NonlinearTerms
-from topics.HDPTopicUtil import calcHrespForMergePairs, calcHrespForSpecificMergePairs
-from topics.HDPTopicUtil import calcMergeTermsFromSeparateLP
-from topics.HDPTopicUtil import L_alloc
+from allocmodel.topics.HDPTopicUtil import calcELBO
+from allocmodel.topics.HDPTopicUtil import calcELBO_LinearTerms, calcELBO_NonlinearTerms
+from allocmodel.topics.HDPTopicUtil import calcHrespForMergePairs, calcHrespForSpecificMergePairs
+from allocmodel.topics.HDPTopicUtil import calcMergeTermsFromSeparateLP
+from allocmodel.topics.HDPTopicUtil import L_alloc
 
-from bnpy.allocmodel.AllocModel import AllocModel
-from bnpy.allocmodel.mix.DPMixtureModel import convertToN0
-from bnpy.suffstats import SuffStatBag
-from bnpy.util import digamma, gammaln
-from bnpy.util import as1D
-from bnpy.util.StickBreakUtil import rho2beta, rho2beta_active, beta2rho
+from allocmodel.AllocModel import AllocModel
+from allocmodel.mix.DPMixtureModel import convertToN0
+from suffstats import SuffStatBag
+from util import digamma, gammaln
+from util import as1D
+from util.StickBreakUtil import rho2beta, rho2beta_active, beta2rho
 
-from bnpy.util import sharedMemToNumpyArray, numpyToSharedMemArray
+from util import sharedMemToNumpyArray, numpyToSharedMemArray
 
 # kvec = OptimizerRhoOmegaBetter.kvec
 Log = logging.getLogger('bnpy')

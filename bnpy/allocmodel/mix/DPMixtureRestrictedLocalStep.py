@@ -1,8 +1,8 @@
 import numpy as np
 import os
 
-from bnpy.util import NumericUtil
-from bnpy.util.SparseRespStatsUtil import calcSparseRlogR
+from util import NumericUtil
+from util.SparseRespStatsUtil import calcSparseRlogR
 
 def summarizeRestrictedLocalStep_DPMixtureModel(
         Dslice=None, 

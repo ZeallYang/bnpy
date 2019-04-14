@@ -3,12 +3,12 @@ import itertools
 
 from scipy.special import gammaln, digamma
 
-from bnpy.suffstats import ParamBag, SuffStatBag
-from bnpy.util import dotATA, dotATB, dotABT
-from bnpy.util import as1D, as2D, as3D
-from bnpy.util import numpyToSharedMemArray, sharedMemToNumpyArray
+from suffstats import ParamBag, SuffStatBag
+from util import dotATA, dotATB, dotABT
+from util import as1D, as2D, as3D
+from util import numpyToSharedMemArray, sharedMemToNumpyArray
 
-from AbstractObsModel import AbstractObsModel
+from obsmodel.AbstractObsModel import AbstractObsModel
 
 nx = np.newaxis
 

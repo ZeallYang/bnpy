@@ -4,8 +4,8 @@ import os
 import sys
 import numpy as np
 
-from bnpy.allocmodel import AllocModelNameSet
-from bnpy.obsmodel import ObsModelNameSet
+from allocmodel import AllocModelNameSet
+from obsmodel import ObsModelNameSet
 
 FullDataAlgSet = set(['EM', 'VB', 'GS', 'pVB'])
 OnlineDataAlgSet = set(['soVB', 'moVB', 'memoVB', 'pmoVB'])

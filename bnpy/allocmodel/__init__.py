@@ -1,20 +1,20 @@
-from AllocModel import AllocModel
+from allocmodel.AllocModel import AllocModel
 
-from .mix.FiniteMixtureModel import FiniteMixtureModel
-from .mix.DPMixtureModel import DPMixtureModel
-from .mix.DPMixtureRestrictedLocalStep import make_xPiVec_and_emptyPi
+from allocmodel.mix.FiniteMixtureModel import FiniteMixtureModel
+from allocmodel.mix.DPMixtureModel import DPMixtureModel
+from allocmodel.mix.DPMixtureRestrictedLocalStep import make_xPiVec_and_emptyPi
 
-from topics.FiniteTopicModel import FiniteTopicModel
-from topics.HDPTopicModel import HDPTopicModel
+from allocmodel.topics.FiniteTopicModel import FiniteTopicModel
+from allocmodel.topics.HDPTopicModel import HDPTopicModel
 
-from hmm.FiniteHMM import FiniteHMM
-from hmm.HDPHMM import HDPHMM
+from allocmodel.hmm.FiniteHMM import FiniteHMM
+from allocmodel.hmm.HDPHMM import HDPHMM
 
-from relational.FiniteSMSB import FiniteSMSB
-from relational.FiniteMMSB import FiniteMMSB
-from relational.FiniteAssortativeMMSB import FiniteAssortativeMMSB
-from relational.HDPMMSB import HDPMMSB
-from relational.HDPAssortativeMMSB import HDPAssortativeMMSB
+from allocmodel.relational.FiniteSMSB import FiniteSMSB
+from allocmodel.relational.FiniteMMSB import FiniteMMSB
+from allocmodel.relational.FiniteAssortativeMMSB import FiniteAssortativeMMSB
+from allocmodel.relational.HDPMMSB import HDPMMSB
+from allocmodel.relational.HDPAssortativeMMSB import HDPAssortativeMMSB
 
 
 AllocModelConstructorsByName = {

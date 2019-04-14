@@ -9,7 +9,7 @@ from util import NumericUtil
 from util import logsumexp
 from util import gammaln, digamma
 from util.SparseRespUtil import sparsifyLogResp
-from DPMixtureModel import *
+from allocmodel.mix.DPMixtureModel import DPMixtureModel
 # calcSummaryStats, calcHrespFromLP
 
 class FiniteMixtureModel(AllocModel):

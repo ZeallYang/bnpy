@@ -3,7 +3,7 @@ import glob
 import os
 
 from collections import defaultdict, OrderedDict
-from bnpy.ioutil import BNPYArgParser
+from ioutil import BNPYArgParser
 
 # kwargs that arent needed for any job pattern matching
 SkipKeys = ['taskids', 'savefilename', 'fileSuffix',

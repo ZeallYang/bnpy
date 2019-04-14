@@ -3,8 +3,8 @@ import copy
 import numpy as np
 import logging
 
-from LearnAlg import LearnAlg
-from LearnAlg import makeDictOfAllWorkspaceVars
+from learnalg.LearnAlg import LearnAlg
+from learnalg.LearnAlg import makeDictOfAllWorkspaceVars
 
 Log = logging.getLogger('bnpy')
 

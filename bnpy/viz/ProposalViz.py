@@ -3,8 +3,8 @@ import os
 import sys
 import glob
 
-from bnpy.birthmove import BLogger
-from PlotUtil import pylab
+from birthmove import BLogger
+from viz.PlotUtil import pylab
 
 CELL_WIDTH = 200
 SQIMG_WIDTH = 200

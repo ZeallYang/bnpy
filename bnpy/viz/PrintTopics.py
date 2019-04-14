@@ -18,14 +18,14 @@ Options
     ids of the tasks (individual runs) of the given job to plot.
     Ex: "1" or "3" or "1,2,3" or "1-6"
 '''
-from PlotUtil import pylab
+from viz.PlotUtil import pylab
 import numpy as np
 import argparse
 import os
 import sys
 
 import bnpy
-from bnpy.ioutil.ModelReader import \
+from ioutil.ModelReader import \
     loadWordCountMatrixForLap, load_model_at_lap
 
 STYLE = """

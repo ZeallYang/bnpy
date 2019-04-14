@@ -1,14 +1,14 @@
 """
 The:mod:`learnalg' module provides learning algorithms.
 """
-from LearnAlg import LearnAlg
-from VBAlg import VBAlg
-from MOVBAlg import MOVBAlg
-from SOVBAlg import SOVBAlg
-from EMAlg import EMAlg
+from learnalg.LearnAlg import LearnAlg
+from learnalg.VBAlg import VBAlg
+from learnalg.MOVBAlg import MOVBAlg
+from learnalg.SOVBAlg import SOVBAlg
+from learnalg.EMAlg import EMAlg
 
-from MemoVBMovesAlg import MemoVBMovesAlg
-import ElapsedTimeLogger
+from learnalg.MemoVBMovesAlg import MemoVBMovesAlg
+import learnalg.ElapsedTimeLogger
 
 # from ParallelVBAlg import ParallelVBAlg
 # from ParallelMOVBAlg import ParallelMOVBAlg

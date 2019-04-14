@@ -2,13 +2,13 @@ import argparse
 import numpy as np
 import os
 
-from bnpy.ioutil.DataReader import loadDataFromSavedTask, loadLPKwargsFromDisk
-from bnpy.ioutil.DataReader import loadKwargsFromDisk
-from bnpy.ioutil.ModelReader import load_model_at_lap
-from bnpy.util import StateSeqUtil
-from bnpy.birthmove.BCreateOneProposal import \
+from ioutil.DataReader import loadDataFromSavedTask, loadLPKwargsFromDisk
+from ioutil.DataReader import loadKwargsFromDisk
+from ioutil.ModelReader import load_model_at_lap
+from util import StateSeqUtil
+from birthmove.BCreateOneProposal import \
     makeSummaryForBirthProposal_HTMLWrapper
-import bnpy.birthmove.BLogger as BLogger
+import birthmove.BLogger as BLogger
 
 DefaultBirthArgs = dict(
     Kmax=100,

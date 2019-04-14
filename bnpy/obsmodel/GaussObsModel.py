@@ -2,13 +2,13 @@ import numpy as np
 import scipy.linalg
 from scipy.special import gammaln, digamma
 
-from bnpy.suffstats import ParamBag, SuffStatBag
-from bnpy.util import LOGTWO, LOGPI, LOGTWOPI, EPS
-from bnpy.util import dotATA, dotATB, dotABT
-from bnpy.util import as1D, as2D, as3D, toCArray
-from bnpy.util import numpyToSharedMemArray, fillSharedMemArray
-from bnpy.util.SparseRespStatsUtil import calcSpRXXT
-from AbstractObsModel import AbstractObsModel
+from suffstats import ParamBag, SuffStatBag
+from util import LOGTWO, LOGPI, LOGTWOPI, EPS
+from util import dotATA, dotATB, dotABT
+from util import as1D, as2D, as3D, toCArray
+from util import numpyToSharedMemArray, fillSharedMemArray
+from util.SparseRespStatsUtil import calcSpRXXT
+from obsmodel.AbstractObsModel import AbstractObsModel
 
 
 class GaussObsModel(AbstractObsModel):
@@ -493,7 +493,7 @@ class GaussObsModel(AbstractObsModel):
         assert hasattr(Post, 'kappa')
         km = Post.m * Post.kappa[:, np.newaxis]
         Bnat = np.empty((self.K, self.D, self.D))
-        for k in xrange(self.K):
+        for k in range(self.K):
             Bnat[k] = Post.B[k] + np.outer(km[k], km[k]) / Post.kappa[k]
         Post.setField('km', km, dims=('K', 'D'))
         Post.setField('Bnat', Bnat, dims=('K', 'D', 'D'))

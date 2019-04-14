@@ -7,9 +7,9 @@ import numpy as np
 import sys
 import os
 import itertools
-import MLogger
+import mergemove.MLogger
 from collections import defaultdict
-from bnpy.viz.PrintTopics import vec2str, count2str
+from viz.PrintTopics import vec2str, count2str
 
 
 def selectCandidateMergePairs(hmodel, SS,

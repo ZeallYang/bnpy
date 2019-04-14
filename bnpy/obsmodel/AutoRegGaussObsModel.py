@@ -2,14 +2,14 @@ import numpy as np
 import scipy.linalg
 from scipy.special import gammaln, digamma
 
-from bnpy.suffstats import ParamBag, SuffStatBag
-from bnpy.util import LOGTWO, LOGPI, LOGTWOPI, EPS
-from bnpy.util import dotATA, dotATB, dotABT
-from bnpy.util import as1D, as2D, as3D
-from bnpy.util import numpyToSharedMemArray, fillSharedMemArray
+from suffstats import ParamBag, SuffStatBag
+from util import LOGTWO, LOGPI, LOGTWOPI, EPS
+from util import dotATA, dotATB, dotABT
+from util import as1D, as2D, as3D
+from util import numpyToSharedMemArray, fillSharedMemArray
 
-from AbstractObsModel import AbstractObsModel
-from GaussObsModel import createECovMatFromUserInput
+from obsmodel.AbstractObsModel import AbstractObsModel
+from obsmodel.GaussObsModel import createECovMatFromUserInput
 
 
 class AutoRegGaussObsModel(AbstractObsModel):

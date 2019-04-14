@@ -8,14 +8,14 @@ Intentionally separated from rest of HMM code, so that we can swap in
 any fast routine for this calculation with ease.
 '''
 import numpy as np
-from bnpy.util import EPS
-from bnpy.util import digamma, gammaln
-from bnpy.util.NumericUtil import Config as PlatformConfig
-from bnpy.util.NumericUtil import sumRtimesS
-from bnpy.util.NumericUtil import inplaceLog
-from bnpy.util import as2D
+from util import EPS
+from util import digamma, gammaln
+from util.NumericUtil import Config as PlatformConfig
+from util.NumericUtil import sumRtimesS
+from util.NumericUtil import inplaceLog
+from util import as2D
 
-from hmm.lib.LibFwdBwd import cppReady, FwdAlg_cpp, BwdAlg_cpp, SummaryAlg_cpp
+from allocmodel.hmm.lib.LibFwdBwd import cppReady, FwdAlg_cpp, BwdAlg_cpp, SummaryAlg_cpp
 
 def calcLocalParams(Data, LP,
                     transTheta=None, startTheta=None,

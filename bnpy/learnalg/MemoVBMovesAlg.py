@@ -4,27 +4,27 @@ Implementation of parallel memoized variational algorithm for bnpy models.
 import numpy as np
 import multiprocessing
 import os
-import ElapsedTimeLogger 
+from learnalg. ElapsedTimeLogger import *
 import scipy.sparse
 
 from collections import defaultdict
 
-from bnpy.birthmove.BCreateManyProposals \
+from birthmove.BCreateManyProposals \
     import makeSummariesForManyBirthProposals
 
-from bnpy.birthmove import \
+from birthmove import \
     BLogger, \
     selectShortListForBirthAtLapStart, \
     summarizeRestrictedLocalStep, \
     selectCompsForBirthAtCurrentBatch
-from bnpy.mergemove import MLogger, SLogger
-from bnpy.mergemove import selectCandidateMergePairs
-from bnpy.deletemove import DLogger, selectCandidateDeleteComps
-from bnpy.util import argsort_bigtosmall_stable
-from bnpy.util.SparseRespUtil import sparsifyResp
-from LearnAlg import makeDictOfAllWorkspaceVars
-from LearnAlg import LearnAlg
-from bnpy.viz.PrintTopics import count2str
+from mergemove import MLogger, SLogger
+from mergemove import selectCandidateMergePairs
+from deletemove import DLogger, selectCandidateDeleteComps
+from util import argsort_bigtosmall_stable
+from util.SparseRespUtil import sparsifyResp
+from learnalg.LearnAlg import makeDictOfAllWorkspaceVars
+from learnalg.LearnAlg import LearnAlg
+from viz.PrintTopics import count2str
 
 # If abs val of two ELBOs differs by less than this small constant
 # We figure its close enough and accept the model with smaller K

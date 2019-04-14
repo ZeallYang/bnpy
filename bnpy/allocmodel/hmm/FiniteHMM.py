@@ -1,9 +1,9 @@
 import numpy as np
 
-import hmm.HMMUtil
-from bnpy.allocmodel import AllocModel
-from bnpy.suffstats import SuffStatBag
-from bnpy.util import digamma, gammaln, as2D
+import allocmodel.hmm.HMMUtil
+from allocmodel import AllocModel
+from suffstats import SuffStatBag
+from util import digamma, gammaln, as2D
 
 
 def log_pdf_dirichlet(PiMat, alphavec):

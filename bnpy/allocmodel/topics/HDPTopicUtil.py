@@ -1,15 +1,15 @@
 import numpy as np
 
-from topics.OptimizerRhoOmegaBetter import kvec
-from bnpy.util import NumericUtil
-from bnpy.util import digamma, gammaln
-from bnpy.util.StickBreakUtil import rho2beta
-from bnpy.util.NumericUtil import calcRlogRdotv_allpairs
-from bnpy.util.NumericUtil import calcRlogRdotv_specificpairs
-from bnpy.util.NumericUtil import calcRlogR_allpairs, calcRlogR_specificpairs
-from bnpy.util.NumericUtil import calcRlogR, calcRlogRdotv
-from bnpy.util.SparseRespStatsUtil import calcSparseRlogR, calcSparseRlogRdotv
-from bnpy.util.SparseRespStatsUtil \
+from allocmodel.topics.OptimizerRhoOmegaBetter import kvec
+from util import NumericUtil
+from util import digamma, gammaln
+from util.StickBreakUtil import rho2beta
+from util.NumericUtil import calcRlogRdotv_allpairs
+from util.NumericUtil import calcRlogRdotv_specificpairs
+from util.NumericUtil import calcRlogR_allpairs, calcRlogR_specificpairs
+from util.NumericUtil import calcRlogR, calcRlogRdotv
+from util.SparseRespStatsUtil import calcSparseRlogR, calcSparseRlogRdotv
+from util.SparseRespStatsUtil \
     import calcSparseMergeRlogR, calcSparseMergeRlogRdotv
 
 ELBOTermDimMap = dict(

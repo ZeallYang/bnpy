@@ -5,7 +5,7 @@ Initialize global params of a bnpy model using a set of local parameters
 '''
 import numpy as np
 
-from FromTruth import convertLPFromHardToSoft
+from init.FromTruth import convertLPFromHardToSoft
 
 import logging
 Log = logging.getLogger('bnpy')

@@ -1,9 +1,9 @@
 import numpy as np
 from collections import defaultdict
 
-import BLogger
-from bnpy.viz.PrintTopics import vec2str
-from bnpy.util import argsort_bigtosmall_stable, argsortBigToSmallByTiers
+from birthmove.BLogger import *
+from viz.PrintTopics import vec2str
+from util import argsort_bigtosmall_stable, argsortBigToSmallByTiers
 
 def selectCompsForBirthAtCurrentBatch(
         hmodel=None,

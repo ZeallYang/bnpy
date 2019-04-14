@@ -1,6 +1,6 @@
 import numpy as np
 
-from LearnAlg import LearnAlg, makeDictOfAllWorkspaceVars
+from learnalg.LearnAlg import LearnAlg, makeDictOfAllWorkspaceVars
 
 
 class EMAlg(LearnAlg):

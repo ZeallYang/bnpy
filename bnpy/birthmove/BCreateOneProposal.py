@@ -2,26 +2,26 @@ import numpy as np
 import os
 import sys
 import bnpy.init.FromTruth
-import BLogger
+import birthmove.BLogger
 
 from scipy.special import digamma, gammaln
 
-from bnpy.allocmodel.topics.HDPTopicRestrictedLocalStep \
+from allocmodel.topics.HDPTopicRestrictedLocalStep \
     import summarizeRestrictedLocalStep_HDPTopicModel
 
-from BCleanup import cleanupMergeClusters, cleanupDeleteSmallClusters
-from BirthProposalError import BirthProposalError
-from bnpy.viz.PlotComps import plotCompsFromSS
-from bnpy.viz.ProposalViz import plotELBOtermsForProposal
-from bnpy.viz.ProposalViz import plotDocUsageForProposal
-from bnpy.viz.ProposalViz import makeSingleProposalHTMLStr
-from bnpy.viz.PrintTopics import vec2str
+from birthmove.BCleanup import cleanupMergeClusters, cleanupDeleteSmallClusters
+from birthmove.BirthProposalError import BirthProposalError
+from viz.PlotComps import plotCompsFromSS
+from viz.ProposalViz import plotELBOtermsForProposal
+from viz.ProposalViz import plotDocUsageForProposal
+from viz.ProposalViz import makeSingleProposalHTMLStr
+from viz.PrintTopics import vec2str
 
-from BRestrictedLocalStep import \
+from birthmove.BRestrictedLocalStep import \
     summarizeRestrictedLocalStep, \
     makeExpansionSSFromZ
 
-from bnpy.init.FromScratchBregman import initSS_BregmanDiv
+from init.FromScratchBregman import initSS_BregmanDiv
 
 DefaultLPkwargs = dict(
     restartLP=1,

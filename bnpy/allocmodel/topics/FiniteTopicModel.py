@@ -1,14 +1,14 @@
 import numpy as np
 
-import topics.LocalStepManyDocs
+import allocmodel.topics.LocalStepManyDocs
 
-from bnpy.allocmodel.AllocModel import AllocModel
-from bnpy.suffstats import SuffStatBag
-from bnpy.util import digamma, gammaln
-from bnpy.util import NumericUtil
+from allocmodel.AllocModel import AllocModel
+from suffstats import SuffStatBag
+from util import digamma, gammaln
+from util import NumericUtil
 
-from bnpy.util.NumericUtil import calcRlogR, calcRlogRdotv
-from bnpy.util.SparseRespStatsUtil import calcSparseRlogR, calcSparseRlogRdotv
+from util.NumericUtil import calcRlogR, calcRlogRdotv
+from util.SparseRespStatsUtil import calcSparseRlogR, calcSparseRlogRdotv
 
 class FiniteTopicModel(AllocModel):
 

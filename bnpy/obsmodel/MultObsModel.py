@@ -3,12 +3,12 @@ from scipy.special import gammaln, digamma
 import scipy.sparse
 import warnings
 
-from bnpy.suffstats import ParamBag, SuffStatBag
-from bnpy.util import dotATA, dotATB, dotABT
-from bnpy.util import as1D, as2D, as3D
-from bnpy.util import numpyToSharedMemArray, sharedMemToNumpyArray
-from bnpy.util import NumericUtil
-from AbstractObsModel import AbstractObsModel
+from suffstats import ParamBag, SuffStatBag
+from util import dotATA, dotATB, dotABT
+from util import as1D, as2D, as3D
+from util import numpyToSharedMemArray, sharedMemToNumpyArray
+from util import NumericUtil
+from obsmodel.AbstractObsModel import AbstractObsModel
 
 
 class MultObsModel(AbstractObsModel):

@@ -5,16 +5,16 @@ import time
 from scipy.special import digamma, gammaln
 import scipy.sparse
 
-import topics.LocalStepLogger
-from bnpy.util import NumericUtil
-from topics.LocalStepSingleDoc import calcLocalParams_SingleDoc
-from topics.LocalStepSingleDoc import calcLocalParams_SingleDoc_WithELBOTrace
+import allocmodel.topics.LocalStepLogger
+from util import NumericUtil
+from allocmodel.topics.LocalStepSingleDoc import calcLocalParams_SingleDoc
+from allocmodel.topics.LocalStepSingleDoc import calcLocalParams_SingleDoc_WithELBOTrace
 
-from bnpy.util.SparseRespUtil \
+from util.SparseRespUtil \
     import fillInDocTopicCountFromSparseResp, sparsifyResp, sparsifyLogResp
-from bnpy.util.lib.sparseResp.LibSparseResp \
+from util.lib.sparseResp.LibSparseResp \
     import calcSparseLocalParams_SingleDoc
-from bnpy.util.lib.sparseResp.LibLocalStepManyDocs \
+from util.lib.sparseResp.LibLocalStepManyDocs \
     import sparseLocalStep_WordCountData
 
 def calcLocalParams(

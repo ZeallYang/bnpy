@@ -5,15 +5,15 @@ FiniteMMSB.py
 import numpy as np
 
 from scipy.sparse import csc_matrix
-from bnpy.allocmodel import AllocModel
-from bnpy.suffstats import SuffStatBag
-from bnpy.util import gammaln, digamma, EPS
+from allocmodel import AllocModel
+from suffstats import SuffStatBag
+from util import gammaln, digamma, EPS
 
-from bnpy.util import StickBreakUtil
-from bnpy.allocmodel.topics import OptimizerRhoOmegaBetter
-from bnpy.allocmodel.topics.HDPTopicUtil import c_Beta, c_Dir, L_top
+from util import StickBreakUtil
+from allocmodel.topics import OptimizerRhoOmegaBetter
+from allocmodel.topics.HDPTopicUtil import c_Beta, c_Dir, L_top
 
-from relational.FiniteMMSB import FiniteMMSB
+from allocmodel.relational.FiniteMMSB import FiniteMMSB
 
 class HDPMMSB(FiniteMMSB):
 

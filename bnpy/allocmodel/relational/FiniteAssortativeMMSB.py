@@ -6,11 +6,11 @@ Assortative mixed membership stochastic blockmodel.
 import numpy as np
 import itertools
 
-from bnpy.allocmodel import AllocModel
-from bnpy.suffstats import SuffStatBag
-from bnpy.util import gammaln, digamma, EPS
-from bnpy.util.NumericUtil import calcRlogR
-from relational.FiniteMMSB import FiniteMMSB
+from allocmodel import AllocModel
+from suffstats import SuffStatBag
+from util import gammaln, digamma, EPS
+from util.NumericUtil import calcRlogR
+from allocmodel.relational.FiniteMMSB import FiniteMMSB
 
 
 class FiniteAssortativeMMSB(FiniteMMSB):
