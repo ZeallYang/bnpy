@@ -158,7 +158,17 @@ def load_obs_model(matfilepath, prefix):
     """
     obspriormatfile = os.path.join(matfilepath, 'ObsPrior.mat')
     PriorDict = loadDictFromMatfile(obspriormatfile)
-    ObsConstr = ObsModelConstructorsByName[PriorDict['name']]
+    
+    ## Comment by Tingting
+    ## for Gaussian case, PriorDict['name'] returns 'GaussObsModel'
+    ## but the key for ObsModelConstructorsByName of Gaussian case
+    ## should be 'Gauss', to fix the error temporarily, I hardcoded the key 
+    if PriorDict['name'] == 'GaussObsModel':
+        GaussKey = 'Gauss'
+        ObsConstr = ObsModelConstructorsByName[GaussKey]
+    ## ToDo: should find a more elegent fix than the hard-coded fixes here    
+     
+    # ObsConstr = ObsModelConstructorsByName[PriorDict['name']]
     obsModel = ObsConstr(**PriorDict)
 
     obsmodelpath = os.path.join(matfilepath, prefix + 'ObsModel.mat')
