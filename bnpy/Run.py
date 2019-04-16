@@ -30,6 +30,7 @@ import time
 
 from bnpy.ioutil import BNPYArgParser
 from bnpy.ioutil.BNPYArgParser import FullDataAlgSet, OnlineDataAlgSet
+from bnpy.HModel import HModel as HModel
 
 # Configure Logger
 Log = logging.getLogger('bnpy')
@@ -381,7 +382,7 @@ def make_initialized_model(
     if initArgsDict is None:
         initArgsDict = KwArgs['Initialization']
 
-    hmodel = bnpy.HModel.CreateEntireModel(
+    hmodel = HModel.CreateEntireModel(
         algName, allocModelName, obsModelName,
         allocPriorArgsDict, obsPriorArgsDict, Data)
     if verbose:

@@ -29,13 +29,17 @@ import mergemove
 import deletemove
 
 import callbacks
+from ioutil import ModelReader as ModelReader
+from ioutil import ModelWriter as ModelWriter
 
 import Run
 
 # Convenient aliases to existing functions
 run = Run.run
-load_model_at_lap = ioutil.ModelReader.load_model_at_lap
-save_model = ioutil.ModelWriter.save_model
+load_model_at_lap = ModelReader.load_model_at_lap
+# ioutil.ModelReader.load_model_at_lap
+save_model = ModelWriter.save_model
+# ioutil.ModelWriter.save_model
 make_initialized_model = Run.make_initialized_model
 
 

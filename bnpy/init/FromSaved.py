@@ -6,7 +6,7 @@ Initialize params of a bnpy model from a previous result saved to disk.
 import numpy as np
 import scipy.io
 import os
-from ioutil import ModelReader
+from ioutil import ModelReader as ModelReader
 
 
 def init_global_params(hmodel, Data, initname=None, **kwargs):
