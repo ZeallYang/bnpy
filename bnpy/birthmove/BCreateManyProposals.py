@@ -1,7 +1,7 @@
 import numpy as np
 import os
 
-import birthmove.BLogger
+import birthmove.BLogger as BLogger
 from collections import defaultdict
 from birthmove.BCreateOneProposal import makeSummaryForBirthProposal_HTMLWrapper
 

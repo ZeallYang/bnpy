@@ -2,7 +2,7 @@ import numpy as np
 import os
 import sys
 import bnpy.init.FromTruth
-import birthmove.BLogger
+import birthmove.BLogger as BLogger
 
 from scipy.special import digamma, gammaln
 

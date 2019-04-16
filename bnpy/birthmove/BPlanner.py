@@ -1,7 +1,7 @@
 import numpy as np
 from collections import defaultdict
 
-from birthmove.BLogger import *
+import birthmove.BLogger as BLogger
 from viz.PrintTopics import vec2str
 from util import argsort_bigtosmall_stable, argsortBigToSmallByTiers
 

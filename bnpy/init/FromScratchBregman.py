@@ -162,7 +162,7 @@ def initSS_BregmanDiv(
     # where resp[n,k] = w[k] if z[n] = k, and 0 otherwise
     xtargetLP, targetZ = convertLPFromHardToSoft(
         dict(Z=targetZ), targetData, initGarbageState=0, returnZ=1)
-    if isinstance(Dslice, bnpy.data.BagOfWordsData):
+    if isinstance(Dslice, data.BagOfWordsData):
         if curModel.obsModel.DataAtomType.count('word'):
             if curModel.getObsModelName().count('Bern'):
                 xtargetLP = convertLPFromDocsToTypes(xtargetLP, targetData)
@@ -428,7 +428,7 @@ def makeDataSubsetByThresholdResp(
     chosenRespIDs : 1D array, size curLP['resp'].shape[0]
         None indicates no curLP provided.
     '''
-    if isinstance(Data, bnpy.data.BagOfWordsData):
+    if isinstance(Data, data.BagOfWordsData):
         return makeDataSubsetByThresholdResp_BagOfWordsData(Data, curModel,
             curLP=curLP,
             ktarget=ktarget,

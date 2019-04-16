@@ -4,7 +4,7 @@ Implementation of parallel memoized variational algorithm for bnpy models.
 import numpy as np
 import multiprocessing
 import os
-from learnalg. ElapsedTimeLogger import *
+import learnalg. ElapsedTimeLogger as ElapsedTimeLogger
 import scipy.sparse
 
 from collections import defaultdict

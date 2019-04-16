@@ -7,7 +7,7 @@ import numpy as np
 import sys
 import os
 import itertools
-import mergemove.MLogger
+import mergemove.MLogger as MLogger
 from collections import defaultdict
 from viz.PrintTopics import vec2str, count2str
 

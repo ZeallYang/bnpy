@@ -1,5 +1,5 @@
 import numpy as np
-import birthmove.BLogger
+import birthmove.BLogger as BLogger
 
 from allocmodel.mix.DPMixtureRestrictedLocalStep import \
     summarizeRestrictedLocalStep_DPMixtureModel, \
