@@ -83,7 +83,7 @@ def load_model_at_prefix(matfilepath, prefix='Best', lap=None):
     try:
         obsModel = load_obs_model(matfilepath, prefix)
         allocModel = load_alloc_model(matfilepath, prefix)
-        model = HModel(allocModel, obsModel)
+        model = HModel.HModel(allocModel, obsModel)
     except IOError as e:
         print( str(e))
         '''

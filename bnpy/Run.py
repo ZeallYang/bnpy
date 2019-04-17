@@ -161,7 +161,8 @@ def _run_task_internal(jobname, taskid, nTask,
     if doSaveToDisk:
         task_output_path = make_task_output_path(
             ReqArgs, KwArgs, taskID=taskid)
-        createEmptyOutputPathOnDisk(task_output_path)
+        if not os.path.exists(task_output_path):
+            createEmptyOutputPathOnDisk(task_output_path)
         writeArgsToFile(ReqArgs, KwArgs, task_output_path, UnkArgs)
     else:
         task_output_path = None
