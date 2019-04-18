@@ -85,7 +85,7 @@ def obtainTrueClusterLabel4FittedCluster(trueY, fittedY, fittedCluster):
     result = dict()
     result['prec'] = prec
     result['TrueCluster'] = majorityCluster
-    result['recall'] = counts[majorityInd]/len(np.where(trueY==majorityInd)[0])
+    result['recall'] = counts[majorityInd]/len(np.where(trueY==majorityCluster)[0])
     result['fittedCluster'] = fittedCluster
     return result
 
@@ -97,8 +97,20 @@ def obtainTrueClusterLabel4AllFittedCluster(trueY, fittedY):
         allResult[fittedCluster] = fittedClusterRes
     return allResult
         
-        
-    
+
+## create a function to obtain a dict with key as true cluster labels 
+## and values to match to all the fitted cluster labels
+acc_single_number(trueY, fittedY, 3, 1)
+
+
+
+
+
+       
+
+
+## create cluster functions to obtain cluster measures like rand index, F measure,
+## purity and normalized mutual information    
     
     
 
@@ -106,7 +118,7 @@ def obtainTrueClusterLabel4AllFittedCluster(trueY, fittedY):
 
 
 
-def acc_single_number(trueY, fitteY, clusterTrue, clusterFitted):
+def acc_single_number(trueY, fittedY, clusterTrue, clusterFitted):
     trueInd = np.where(trueY==clusterTrue)[0]
     numTrue = len(trueInd)
     fittedInd = np.where(fittedY==clusterFitted)[0]
