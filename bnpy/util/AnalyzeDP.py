@@ -85,7 +85,21 @@ def obtainTrueClusterLabel4FittedCluster(trueY, fittedY, fittedCluster):
     result = dict()
     result['prec'] = prec
     result['cluster'] = majorityCluster
+    result['recall'] = counts[majorityInd]/len(np.where(trueY==majorityInd)[0])
+    result[fittedCluster] = majorityCluster
     return result
+
+def obtainTrueClusterLabel4AllFittedCluster(trueY, fittedY):
+    allFittedClasses, fittedCount = np.unique(fittedY, return_counts=True)
+    allResult = dict()
+    for classValue in allFittedClasses:
+        allResult = None
+        
+        
+    
+    
+    
+
     
 
 
