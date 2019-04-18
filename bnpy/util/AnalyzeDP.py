@@ -153,7 +153,12 @@ def obtainSilhouetteScore(X, fittedY):
     ## A value of 0 indicates that the sample is on or very close to the decision 
     ## boundary between two neighboring clusters and negative values indicate that 
     ## those samples might have been assigned to the wrong cluster.
-    result = silhouette_score(aa['z'], trueY)
+    """
+    Args: X is the original sample data used for clustering
+          fittedY represents the fitted cluster label
+    Returns: silhouette_score, a score close to 0 indicates good clustering
+    """
+    result = silhouette_score(X, fittedY)
     return result
 
 
