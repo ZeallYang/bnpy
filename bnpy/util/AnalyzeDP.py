@@ -127,38 +127,46 @@ def obtainDictFromTrueToFitted(dictFitted2True):
     ## sort the keys in an increasing order
     return resultTrue2Fitted
 
+################################################################################################
+## add metrics calculation function for clusters
+from sklearn.metrics import accuracy_score, normalized_mutual_info_score, adjusted_rand_score,silhouette_score
+from sklearn.metrics.cluster import homogeneity_score, completeness_score,v_measure_score
+
+def clusterEvaluation(trueY, fittedY):
+    result = dict()
+    ## NMI denotes normalized mutual information
+    ## ARS denotes adjusted rand score
+    ## HS stands for homogeneity_score, 1 means perfect
+    ## VM represents v_measure_score ranging [0, 1], 1.0 is perfectly complete labeling
+    ## SS represents silhouette_score
+    result['NMI'] = normalized_mutual_info_score(trueY, fittedY)
+    result['ARS'] = adjusted_rand_score(trueY, fittedY)
+    result['HS'] = homogeneity_score(trueY, fittedY)
+    result['CS'] = completeness_score(trueY, fittedY)
+    result['VM'] = v_measure_score(trueY, fittedY)
+    return result
+
+
+def obtainSilhouetteScore(X, fittedY):
+    ## this score can be used to select the number of clusters
+    ## a value closer to 1 is better
+    ## A value of 0 indicates that the sample is on or very close to the decision 
+    ## boundary between two neighboring clusters and negative values indicate that 
+    ## those samples might have been assigned to the wrong cluster.
+    result = silhouette_score(aa['z'], trueY)
+    return result
+
+
+   
 
 
 
 
 
 
-                
-        
-        
-        
-        
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
- 
 
 
 
-       
-
-
-## create cluster functions to obtain cluster measures like rand index, F measure,
-## purity and normalized mutual information    
     
     
 
