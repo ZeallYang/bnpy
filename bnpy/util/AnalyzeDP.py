@@ -84,7 +84,7 @@ def obtainTrueClusterLabel4FittedCluster(trueY, fittedY, fittedCluster):
     
     result = dict()
     result['prec'] = prec
-    result['TrueCluster'] = majorityCluster
+    result['trueCluster'] = majorityCluster
     result['recall'] = counts[majorityInd]/len(np.where(trueY==majorityCluster)[0])
     result['fittedCluster'] = fittedCluster
     return result
@@ -98,11 +98,59 @@ def obtainTrueClusterLabel4AllFittedCluster(trueY, fittedY):
     return allResult
         
 
-## create a function to obtain a dict with key as true cluster labels 
-## and values to match to all the fitted cluster labels
-acc_single_number(trueY, fittedY, 3, 1)
+def obtainDictFromTrueToFitted(dictFitted2True):
+    """
+    This function returns the dictionary from a given true class label to 
+    the cluster label in the fitted clusters, predicted given the model
+    dictFitted2True = obtainTrueClusterLabel4AllFittedCluster(trueY, fittedY)
+    Args:
+        dictFittedToTrue should be a result from obtainTrueClusterLabel4AllFittedCluster
+    Returns:
+        a dictionary with each key as the true cluslter label
+        and the values to each key as the label of the fitted cluster to this true label
+    """
+    ## obtain all the fitted cluster labels, which is all the keys to dictFitted2True
+    ## correctness of this function has been tested
+    allFClusters = dictFitted2True.keys()
+    resultTrue2Fitted = dict()
+    
+    for fittedCluster in allFClusters:
+        trueCluster = dictFitted2True[fittedCluster]['trueCluster']
+        fittedCluster = dictFitted2True[fittedCluster]['fittedCluster']
+        ## check if trueCluster exists in the keys of resultTrue2Fitted
+        if not trueCluster in resultTrue2Fitted.keys():
+            resultTrue2Fitted[trueCluster] = list()
+            resultTrue2Fitted[trueCluster].append(fittedCluster)
+        else:
+            if not fittedCluster in resultTrue2Fitted[trueCluster]:
+                resultTrue2Fitted[trueCluster].append(fittedCluster)
+    ## sort the keys in an increasing order
+    return resultTrue2Fitted
 
 
+
+
+
+
+
+                
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ 
 
 
 
