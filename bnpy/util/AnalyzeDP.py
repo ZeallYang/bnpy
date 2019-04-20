@@ -133,21 +133,6 @@ def obtainDictFromTrueToFitted(dictFitted2True):
     return resultTrue2Fitted
 
 
-def clusterAccuracy(trueY, fittedY):
-    dictFitted2True = obtainTrueClusterLabel4AllFittedCluster(trueY, fittedY)
-    total_count = len(trueY)
-    count = 0
-    for key in dictFitted2True.keys():
-        values = dictFitted2True[key]
-        if values['prec'] >0.5 or values['recall'] >0.5:
-            count += values['overallRecallCount']
-    acc = count/total_count
-    clusterMatch = obtainDictFromTrueToFitted(dictFitted2True)
-    result = dict()
-    result['overallRecall'] = acc
-    result['match'] = clusterMatch
-    result['details'] = dictFitted2True 
-    return result
 
 ################################################################################################
     
@@ -170,6 +155,24 @@ def clusterEvaluation(trueY, fittedY):
     result['CS'] = completeness_score(trueY, fittedY)
     result['VM'] = v_measure_score(trueY, fittedY)
     return result
+
+def clusterAccuracy(trueY, fittedY):
+    dictFitted2True = obtainTrueClusterLabel4AllFittedCluster(trueY, fittedY)
+    total_count = len(trueY)
+    count = 0
+    for key in dictFitted2True.keys():
+        values = dictFitted2True[key]
+        if values['prec'] >0.5 or values['recall'] >0.5:
+            count += values['overallRecallCount']
+    acc = count/total_count
+    clusterMatch = obtainDictFromTrueToFitted(dictFitted2True)
+    result = dict()
+    result['overallRecall'] = acc
+    result['match'] = clusterMatch
+    result['details'] = dictFitted2True 
+    result['moreEvaluation'] = clusterEvaluation(trueY, fittedY)
+    return result
+
 
 
 def obtainSilhouetteScore(X, fittedY):
@@ -210,21 +213,6 @@ def obtainFittedYFromDP(DPParam, z_fit):
     fittedY = LPMtx.argmax(axis=1)
     return fittedY
     
-   
-
-
-
-
-
-
-
-
-
-    
-    
-
-    
-
 
 
 def acc_single_number(trueY, fittedY, clusterTrue, clusterFitted):
