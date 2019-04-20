@@ -6,6 +6,7 @@ Created on Fri Apr 12 13:44:02 2019
 @author: crystal
 """
 import numpy as np
+from bnpy.data.XData import XData
 
 ## extract DP parameters and organize them into a function
 def extractDPParam(model, dataset):
@@ -42,6 +43,7 @@ def extractDPParam(model, dataset):
     DPParam['B'] = B
     DPParam['nu'] = nu
     DPParam['kappa'] = kappa
+    DPParam['model'] = model
     return DPParam
 
 def obtainObsInd4Cluster(Y, clusterLabel):
@@ -85,7 +87,11 @@ def obtainTrueClusterLabel4FittedCluster(trueY, fittedY, fittedCluster):
     result = dict()
     result['prec'] = prec
     result['trueCluster'] = majorityCluster
-    result['recall'] = counts[majorityInd]/len(np.where(trueY==majorityCluster)[0])
+    count_trueY = len(np.where(trueY==majorityCluster)[0])
+    result['recall'] = counts[majorityInd]/count_trueY
+    result['count_trueY4trueCluster'] = count_trueY
+    result['overallPrecCount'] = counts[majorityInd]  
+    result['overalRecallCount'] = counts[majorityInd]
     result['fittedCluster'] = fittedCluster
     return result
 
@@ -124,10 +130,34 @@ def obtainDictFromTrueToFitted(dictFitted2True):
         else:
             if not fittedCluster in resultTrue2Fitted[trueCluster]:
                 resultTrue2Fitted[trueCluster].append(fittedCluster)
-    ## sort the keys in an increasing order
+    ## ToDo: sort the keys in an increasing order
     return resultTrue2Fitted
 
+
+def clusterAccuracy(trueY, fittedY):
+    dictFitted2True = obtainTrueClusterLabel4AllFittedCluster(trueY, fittedY)
+    total_count = len(trueY)
+    count = 0
+    prec_count =0
+    for key in dictFitted2True.keys():
+        values = dictFitted2True[key]
+        if values['prec'] >0.5 or values['recall'] >0.5:
+            count += values['overallRecallCount']
+            prec_count += values['overallPrecCount']
+    acc = count/total_count
+    prec = prec_count/total_count
+    clusterMatch = obtainDictFromTrueToFitted(dictFitted2True)
+    result = dict()
+    result['overallRecall'] = acc
+    result['overallPrec'] = prec
+    result['match'] = clusterMatch
+    result['details'] = dictFitted2True 
+    return result
+
 ################################################################################################
+    
+
+
 ## add metrics calculation function for clusters
 from sklearn.metrics import accuracy_score, normalized_mutual_info_score, adjusted_rand_score,silhouette_score
 from sklearn.metrics.cluster import homogeneity_score, completeness_score,v_measure_score
@@ -161,7 +191,30 @@ def obtainSilhouetteScore(X, fittedY):
     result = silhouette_score(X, fittedY)
     return result
 
-
+##################################################
+def obtainFittedYFromDP(DPParam, z_fit):
+    """
+    Given the fitted dp model saved in DPParam and the observation, in the 
+    VAE case, z_fit represents the latent representation, this function
+    return the fittedY cluster label from the DP model for all observations
+    in z_fit
+    Args:
+        DPParam: the object saves the fitted DP_model
+        z_fit: the observation to be fit into the DP_model, it should be of 
+        XData class in bnpy, if not, convert it to XData type
+    Return:
+        the fitted cluster label for each observation in z_fit
+    """
+    dp_model = DPParam['model']
+    ## transform z_fit to XData
+    if not isinstance(z_fit, XData):
+        z_fit = XData(z_fit)
+    LP = dp_model.calc_local_params(z_fit)
+    LPMtx = LP['E_log_soft_ev']
+    ## to obtain hard assignment of clusters for each observation
+    fittedY = LPMtx.argmax(axis=1)
+    return fittedY
+    
    
 
 
