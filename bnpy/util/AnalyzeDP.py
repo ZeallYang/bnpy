@@ -89,9 +89,8 @@ def obtainTrueClusterLabel4FittedCluster(trueY, fittedY, fittedCluster):
     result['trueCluster'] = majorityCluster
     count_trueY = len(np.where(trueY==majorityCluster)[0])
     result['recall'] = counts[majorityInd]/count_trueY
-    result['count_trueY4trueCluster'] = count_trueY
-    result['overallPrecCount'] = counts[majorityInd]  
-    result['overalRecallCount'] = counts[majorityInd]
+    result['count_trueY4trueCluster'] = count_trueY 
+    result['overallRecallCount'] = counts[majorityInd]
     result['fittedCluster'] = fittedCluster
     return result
 
@@ -138,18 +137,14 @@ def clusterAccuracy(trueY, fittedY):
     dictFitted2True = obtainTrueClusterLabel4AllFittedCluster(trueY, fittedY)
     total_count = len(trueY)
     count = 0
-    prec_count =0
     for key in dictFitted2True.keys():
         values = dictFitted2True[key]
         if values['prec'] >0.5 or values['recall'] >0.5:
             count += values['overallRecallCount']
-            prec_count += values['overallPrecCount']
     acc = count/total_count
-    prec = prec_count/total_count
     clusterMatch = obtainDictFromTrueToFitted(dictFitted2True)
     result = dict()
     result['overallRecall'] = acc
-    result['overallPrec'] = prec
     result['match'] = clusterMatch
     result['details'] = dictFitted2True 
     return result
