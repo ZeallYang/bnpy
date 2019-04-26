@@ -132,6 +132,14 @@ def obtainDictFromTrueToFitted(dictFitted2True):
     ## ToDo: sort the keys in an increasing order
     return resultTrue2Fitted
 
+def obtainDictFromTrueToFittedUsingLabel(trueY, FittedY):
+    dictFitted2True = obtainTrueClusterLabel4AllFittedCluster(trueY, FittedY)
+    result =  obtainDictFromTrueToFitted(dictFitted2True)
+    return result
+    
+    
+    
+    
 
 
 ################################################################################################
