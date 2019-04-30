@@ -1094,8 +1094,11 @@ class MemoVBMovesAlg(LearnAlg):
             else:
                 assert np.allclose(MovePlans['b_retainedUIDs'],
                     MovePlans['b_targetUIDs'])
-            for uid in MovePlans['b_targetUIDs']:
-                assert uid in SS.propXSS
+            if not 'b_targetUIDs' in MovePlans.keys():
+                pass
+            else:
+                for uid in MovePlans['b_targetUIDs']:
+                    assert uid in SS.propXSS
         MovePlans['b_Knew'] = totalKnew
         MovePlans['b_nAccept'] = nAccept
         MovePlans['b_nTrial'] = nTrial
