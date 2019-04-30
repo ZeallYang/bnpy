@@ -1089,7 +1089,7 @@ class MemoVBMovesAlg(LearnAlg):
             BLogger.stopUIDSpecificLog(targetUID)
 
         if 'b_retainedUIDs' in MovePlans:
-            if 'b_targetUIDs' in MovePlans.keys():
+            if not 'b_targetUIDs' in MovePlans.keys():
                 pass
             else:
                 assert np.allclose(MovePlans['b_retainedUIDs'],
