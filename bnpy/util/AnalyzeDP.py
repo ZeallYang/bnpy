@@ -180,7 +180,7 @@ def clusterAccuracyUpdated(trueY, fittedY):
     result['match'] = clusterMatch
     result['details'] = dictFitted2True 
     result['moreEvaluation'] = clusterEvaluation(trueY, fittedY)
-    return acc
+    return result
     
 def clusterAccuracy(trueY, fittedY):
     dictFitted2True = obtainTrueClusterLabel4AllFittedCluster(trueY, fittedY)
