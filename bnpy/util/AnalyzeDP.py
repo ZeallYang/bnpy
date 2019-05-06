@@ -164,6 +164,24 @@ def clusterEvaluation(trueY, fittedY):
     result['VM'] = v_measure_score(trueY, fittedY)
     return result
 
+def clusterAccuracyUpdated(trueY, fittedY):
+    dictFitted2True = obtainTrueClusterLabel4AllFittedCluster(trueY, fittedY)
+    clusterMatch = obtainDictFromTrueToFitted(dictFitted2True)
+    trueClusters = clusterMatch.keys()
+    count = 0
+    total_count = len(trueY)
+    for trueCluster in trueClusters:
+        fittedClusters = clusterMatch[trueCluster]
+        for fittedCluster in fittedClusters:
+            count = count + dictFitted2True[fittedCluster]['overallRecallCount']
+    acc = count/total_count
+    result = dict()
+    result['overallRecall'] = acc
+    result['match'] = clusterMatch
+    result['details'] = dictFitted2True 
+    result['moreEvaluation'] = clusterEvaluation(trueY, fittedY)
+    return acc
+    
 def clusterAccuracy(trueY, fittedY):
     dictFitted2True = obtainTrueClusterLabel4AllFittedCluster(trueY, fittedY)
     total_count = len(trueY)
