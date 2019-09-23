@@ -1,7 +1,7 @@
 import numpy as np
 
 
-from LearnAlg import LearnAlg, ElapsedTimeLogger, makeDictOfAllWorkspaceVars
+from learnalg.LearnAlg import LearnAlg, ElapsedTimeLogger, makeDictOfAllWorkspaceVars
 
 
 class VBAlg(LearnAlg):
