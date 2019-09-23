@@ -33,9 +33,10 @@ from ioutil import ModelReader as ModelReader
 from ioutil import ModelWriter as ModelWriter
 
 import Run
-
+import RunWithInit
 # Convenient aliases to existing functions
 run = Run.run
+runWithInit = RunWithInit.RunWithInit
 load_model_at_lap = ModelReader.load_model_at_lap
 # ioutil.ModelReader.load_model_at_lap
 save_model = ModelWriter.save_model
